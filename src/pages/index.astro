@@ -11,101 +11,245 @@ import { SOCIALS } from "@/constants";
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
-    <section
-      id="hero"
-      class:list={["pt-8 pb-12", "border-b border-border"]}
-    >
-      <h1 class="my-4 text-4xl font-bold sm:my-8 sm:text-5xl">stoneyang</h1>
-      <p class="text-xl opacity-80 sm:text-2xl">
-        AI 时代零到一验证玩家 · 一人公司
-      </p>
-      <p class="mt-3 text-base opacity-70 sm:text-lg">
-        不做 AI 教育专家,做"普通人 + AI 追上专家"的 demo
-      </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <LinkButton
-          href="/products"
-          class="rounded-lg bg-accent px-5 py-2 font-medium text-background hover:opacity-90"
+    <!-- Hero -->
+    <section id="hero" class="pt-16 pb-20 sm:pt-24 sm:pb-28">
+      <div class="max-w-3xl">
+        <div
+          class="mb-4 inline-block rounded-full border border-accent/40 bg-accent/5 px-3 py-1 text-xs tracking-widest text-accent uppercase"
         >
-          看看我的产品
-          <IconArrowRight class="inline-block rtl:-rotate-180" />
-        </LinkButton>
-        <LinkButton
-          href="/about"
-          class="rounded-lg border border-accent px-5 py-2 font-medium text-accent hover:bg-accent hover:text-background"
+          Solo · AI · Meta Validation
+        </div>
+        <h1
+          class="text-5xl leading-tight font-bold tracking-tight sm:text-7xl"
         >
-          了解我是谁
-        </LinkButton>
+          超级个体 <span class="text-accent">OS</span>
+        </h1>
+        <p class="mt-5 text-xl opacity-90 sm:text-2xl">
+          stone杨 · 零到一验证手记
+        </p>
+        <p class="mt-6 max-w-2xl text-base leading-relaxed opacity-70 sm:text-lg">
+          一个人 × 一群 Agent,用 meta 思维重造一人公司。<br />
+          不做 AI 教育专家,做"普通人 + AI 追上专家"的 demo。
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <LinkButton
+            href="/products"
+            class="rounded-lg bg-accent px-6 py-3 font-medium text-background hover:opacity-90"
+          >
+            看我的产品矩阵
+            <IconArrowRight class="inline-block rtl:-rotate-180" />
+          </LinkButton>
+          <LinkButton
+            href="#find-me"
+            class="rounded-lg border-2 border-accent px-6 py-3 font-medium text-accent hover:bg-accent hover:text-background"
+          >
+            加我微信聊聊
+          </LinkButton>
+        </div>
       </div>
     </section>
 
+    <!-- 已交付的证据 -->
     <section
-      id="current-work"
-      class:list={["pt-12 pb-6", "border-b border-border"]}
+      id="evidence"
+      class:list={["border-t border-b border-border", "py-12"]}
     >
-      <h2 class="text-2xl font-semibold tracking-wide">正在做</h2>
-      <ul class="mt-6 grid gap-5 sm:grid-cols-3">
-        <li class="rounded-lg border border-border p-5 hover:border-accent">
-          <a href="/products/agent-os" class="block">
-            <h3 class="text-lg font-semibold">Agent OS</h3>
-            <p class="mt-2 text-sm opacity-80">
-              一人公司的操作系统 · 5 大舱室 · 我自己每天在用,未来可能开放
-            </p>
-          </a>
-        </li>
-        <li class="rounded-lg border border-border p-5 hover:border-accent">
-          <a href="/products/ai-reading" class="block">
-            <h3 class="text-lg font-semibold">AI 阅读课程</h3>
-            <p class="mt-2 text-sm opacity-80">
-              12+ 岁孩子 AI 辅助深度阅读 · 接过 Adler-Foster 的第三代 ·
-              第一批教案已产出
-            </p>
-          </a>
-        </li>
-        <li class="rounded-lg border border-border p-5 hover:border-accent">
-          <a href="/projects" class="block">
-            <h3 class="text-lg font-semibold">14 本书 AI 阅读 wiki</h3>
-            <p class="mt-2 text-sm opacity-80">
-              7 天 demo · 公众号 + 小红书 + github 三平台已发布 · 证明 meta 路径
-            </p>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section
-      id="beliefs"
-      class:list={["pt-12 pb-6", "border-b border-border"]}
-    >
-      <h2 class="text-2xl font-semibold tracking-wide">我相信</h2>
-      <ul class="mt-6 space-y-3 opacity-90">
-        <li>— 用 meta 思维找自己的产品,不做 domain 专家</li>
-        <li>— 60 分就发,7 天 demo 比 6 个月完美更有价值</li>
-        <li>— AI 只压缩抵达深沉经验的脚手架,不替代终极目标</li>
-      </ul>
-    </section>
-
-    <section id="find-me" class="pt-12 pb-12">
-      <h2 class="text-2xl font-semibold tracking-wide">找我</h2>
-      {
-        SOCIALS.length > 0 && (
-          <div class="mt-6 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">链接:</div>
-            <Socials />
+      <div class="mb-8 text-xs tracking-[0.2em] opacity-60 uppercase">
+        已交付的证据 · 不是营销话术
+      </div>
+      <div class="grid gap-8 sm:grid-cols-3">
+        <div>
+          <div class="text-5xl font-bold text-accent">14<span class="text-2xl opacity-80">本</span></div>
+          <div class="mt-2 text-sm leading-relaxed opacity-80">
+            AI 阅读 wiki · 7 天 demo<br />公众号 + 小红书 + github 三平台已发布
           </div>
-        )
-      }
-      <p class="mt-6 opacity-80">
-        公众号 / 小红书 / 视频号:同名 <strong>stoneyang</strong>,主要内容阵地
+        </div>
+        <div>
+          <div class="text-5xl font-bold text-accent">4<span class="text-2xl opacity-80">课时</span></div>
+          <div class="mt-2 text-sm leading-relaxed opacity-80">
+            AI 阅读课程《杀死一只知更鸟》<br />第一批完整教案已产出
+          </div>
+        </div>
+        <div>
+          <div class="text-5xl font-bold text-accent">1.0</div>
+          <div class="mt-2 text-sm leading-relaxed opacity-80">
+            Agent OS 自用验证中<br />5 大舱室架构运行超 30 天
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 四层系统 -->
+    <section id="system" class="py-16 sm:py-24">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        一人公司的四层系统
+      </h2>
+      <p class="mt-3 max-w-2xl opacity-70">
+        戴三顶帽子(PM / 开发 / 内容创作),跑四层系统。每一层都是 meta 可复用的,不是一次性技巧。
       </p>
-      <p class="mt-2 opacity-80">
-        AI 阅读 / Agent OS 合作咨询 → 加个人微信(二维码见
+
+      <ul class="mt-10 grid gap-5 sm:grid-cols-2">
+        <li
+          class="rounded-xl border border-border p-7 transition hover:border-accent"
+        >
+          <div class="text-xs tracking-[0.2em] text-accent uppercase">
+            Layer 01 · 认知
+          </div>
+          <h3 class="mt-3 text-2xl font-bold">Meta 思维</h3>
+          <p class="mt-3 text-sm leading-relaxed opacity-80">
+            不做 domain 专家(打不过真专家),做"普通人 + AI 追上专家"的 meta 验证者。在 meta 层找杠杆。
+          </p>
+        </li>
+        <li
+          class="rounded-xl border border-border p-7 transition hover:border-accent"
+        >
+          <div class="text-xs tracking-[0.2em] text-accent uppercase">
+            Layer 02 · 方法
+          </div>
+          <h3 class="mt-3 text-2xl font-bold">AI 流水线</h3>
+          <p class="mt-3 text-sm leading-relaxed opacity-80">
+            batch_v0 → raw 打靶 → 成品。用 AI 压缩"抵达深沉经验"的脚手架,不替代终极目标。
+          </p>
+        </li>
+        <li
+          class="rounded-xl border border-border p-7 transition hover:border-accent"
+        >
+          <div class="text-xs tracking-[0.2em] text-accent uppercase">
+            Layer 03 · 系统
+          </div>
+          <h3 class="mt-3 text-2xl font-bold">Agent OS</h3>
+          <p class="mt-3 text-sm leading-relaxed opacity-80">
+            一人公司的操作系统 · 5 大舱室(Kernel / Sensors / Brain / Actuators / Memory)· 每个舱室只专注一件事。
+          </p>
+        </li>
+        <li
+          class="rounded-xl border border-border p-7 transition hover:border-accent"
+        >
+          <div class="text-xs tracking-[0.2em] text-accent uppercase">
+            Layer 04 · 精神
+          </div>
+          <h3 class="mt-3 text-2xl font-bold">60 分就发</h3>
+          <p class="mt-3 text-sm leading-relaxed opacity-80">
+            7 天 demo 比 6 个月完美更有价值。行动 &gt; 计划,结果 &gt; 感受,过滤 &gt; 收集。
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 产品矩阵 -->
+    <section
+      id="products-showcase"
+      class:list={["border-t border-border", "py-16 sm:py-24"]}
+    >
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">正在做</h2>
+      <p class="mt-3 opacity-70">两个 meta 产品,共同点:都是可复制的方法论,不是一次性服务</p>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
         <a
-          href="/products"
+          href="/products/agent-os"
+          class="group block rounded-xl border border-border p-8 transition hover:border-accent"
+        >
+          <div class="text-xs tracking-[0.2em] text-accent uppercase">
+            Product · 一人公司 OS
+          </div>
+          <h3 class="mt-3 text-3xl font-bold">Agent OS</h3>
+          <p class="mt-4 leading-relaxed opacity-80">
+            5 大舱室 × 华为 BLM / IPD / IPMS 方法论,把一人公司的碎片精力重新组织。我自己每天在用。
+          </p>
+          <div
+            class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent"
+          >
+            了解详情与早鸟名单
+            <IconArrowRight class="inline-block transition group-hover:translate-x-1 rtl:-rotate-180" />
+          </div>
+        </a>
+        <a
+          href="/products/ai-reading"
+          class="group block rounded-xl border border-border p-8 transition hover:border-accent"
+        >
+          <div class="text-xs tracking-[0.2em] text-accent uppercase">
+            Product · 12+ 岁 AI 阅读课
+          </div>
+          <h3 class="mt-3 text-3xl font-bold">AI 阅读课程</h3>
+          <p class="mt-4 leading-relaxed opacity-80">
+            接过 Adler(1972)→ Foster(2003)的三代师承。AI 流水线产出 4 课时教案第一批,招募早期学员。
+          </p>
+          <div
+            class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent"
+          >
+            了解课程与试听
+            <IconArrowRight class="inline-block transition group-hover:translate-x-1 rtl:-rotate-180" />
+          </div>
+        </a>
+      </div>
+
+      <div class="mt-8 text-sm opacity-70">
+        还有非变现类 demo / 开源作品 →
+        <a
+          href="/projects"
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          >产品页</a
-        >)
+          >看项目页</a
+        >
+      </div>
+    </section>
+
+    <!-- 找我 · 三维码矩阵 -->
+    <section
+      id="find-me"
+      class:list={["border-t border-border", "py-16 sm:py-24"]}
+    >
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">找我</h2>
+      <p class="mt-3 opacity-70">
+        三个平台同名 <strong>stone杨 / stoneyang</strong>,扫码关注或加微信
       </p>
+
+      <div class="mt-10 grid gap-8 sm:grid-cols-3">
+        <div class="rounded-xl border border-border p-6 text-center">
+          <img
+            src="/qr-wechat.jpg"
+            alt="stone杨 的个人微信二维码"
+            width="256"
+            height="256"
+            class="mx-auto aspect-square w-48 rounded-lg object-cover"
+            loading="lazy"
+          />
+          <div class="mt-4 font-semibold">个人微信</div>
+          <div class="mt-1 text-sm opacity-70">
+            产品合作 · 早鸟名单 · 1:1 交流
+          </div>
+        </div>
+        <div class="rounded-xl border border-border p-6 text-center">
+          <img
+            src="/qr-gongzhonghao.jpg"
+            alt="stone杨 的公众号二维码"
+            width="256"
+            height="256"
+            class="mx-auto aspect-square w-48 rounded-lg object-cover"
+            loading="lazy"
+          />
+          <div class="mt-4 font-semibold">公众号</div>
+          <div class="mt-1 text-sm opacity-70">长文 · 深度思考 · 方法论</div>
+        </div>
+        <div class="rounded-xl border border-border p-6 text-center">
+          <img
+            src="/qr-xiaohongshu.jpg"
+            alt="stone杨 的小红书二维码"
+            width="256"
+            height="256"
+            class="mx-auto aspect-square w-48 rounded-lg object-cover"
+            loading="lazy"
+          />
+          <div class="mt-4 font-semibold">小红书</div>
+          <div class="mt-1 text-sm opacity-70">短内容 · 灵感碎片 · 日常</div>
+        </div>
+      </div>
+
+      <div
+        class="mt-12 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center"
+      >
+        <div class="whitespace-nowrap opacity-80">更多链接:</div>
+        {SOCIALS.length > 0 && <Socials />}
+      </div>
     </section>
   </main>
   <Footer />

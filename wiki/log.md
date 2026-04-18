@@ -4,6 +4,41 @@
 
 ---
 
+## 2026-04-18 18:15 | Day 3 前半 | 改名 + 视觉重做 ✅
+
+**品牌升级决定**:
+- 主 logo: **超级个体 OS**(扣产品 + 目标人群)
+- 副标: **stone杨 · 零到一验证手记**(人格 + 定位)
+- Tagline: **一个人 × 一群 Agent,用 meta 思维重造一人公司**
+
+**文案规则**:
+- 网站 UI 里的"作者称谓"统一用 **stone杨**(中英混搭品牌)
+- 保留原样:github URL(`stoneyang0213`)、邮箱(`yangstone33@gmail.com`)、平台账号(`stoneyang`)
+- 8 个文件文案同步完成:config.ts / constants.ts / index.astro / about.md / projects.md / resources.md / products/{index,ai-reading,agent-os}.md
+
+**首页视觉重做**(参考 zaoxiaban 节奏,5 大块):
+1. **Hero** - 大字 "超级个体 <accent>OS</accent>" + 标签徽章 + 双 CTA(看产品 / 加微信)
+2. **已交付的证据** - 3 个数字背书(14本/4课时/1.0)— 真实数字不夸张
+3. **一人公司的四层系统** - 2x2 卡片矩阵(认知 / 方法 / 系统 / 精神)+ Layer 01-04 序号
+4. **正在做** - 2 张大产品卡(Agent OS / AI 阅读),产品页链接
+5. **找我** - 3 张二维码横排(微信 / 公众号 / 小红书)+ socials 底部
+
+**二维码处理**:
+- stoneyang 已在 `public/` 放了 3 张 jpg
+- 重命名:`个人微信号.jpg` → `qr-wechat.jpg` / `公众号二维码.jpg` → `qr-gongzhonghao.jpg` / `小红书二维码 (2).jpg` → `qr-xiaohongshu.jpg`
+- 首页 `/#find-me` 三栏嵌入,各 48x48 w-48
+
+**部署**:
+- build exit 0,46 HTML
+- wrangler pages deploy 173 files
+- https://4fca48c3.stoneyang-top.pages.dev / https://stoneyang-top.pages.dev
+
+**Day 3 剩余**:
+- [ ] stoneyang 回报视觉反馈,如需调整字体 / 间距 / 颜色就改
+- [ ] 阿里云 DNS 绑定(stoneyang 在 Cloudflare Pages 后台加 Custom domains 拿到 CNAME 值,阿里云侧加记录)
+
+---
+
 ## 2026-04-18 17:00 | Day 2 **超额完成** ✅
 
 **交付**:

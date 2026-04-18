@@ -1,9 +1,9 @@
 export const SITE = {
   website: "https://stoneyang.top/",
-  author: "stoneyang",
+  author: "stone杨",
   profile: "https://stoneyang.top/",
-  desc: "AI 时代零到一验证玩家 · 一人公司 · AI × 阅读 × 结构化思维",
-  title: "stoneyang",
+  desc: "超级个体 OS · stone杨 · 零到一验证手记 · 一个人 × 一群 Agent,用 meta 思维重造一人公司",
+  title: "超级个体 OS",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,

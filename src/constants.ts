@@ -20,13 +20,13 @@ export const SOCIALS: Social[] = [
   {
     name: "GitHub",
     href: "https://github.com/stoneyang0213",
-    linkTitle: `${SITE.title} 的 GitHub`,
+    linkTitle: "stone杨 的 GitHub",
     icon: IconGitHub,
   },
   {
     name: "Mail",
     href: "mailto:yangstone33@gmail.com",
-    linkTitle: `给 ${SITE.title} 写邮件`,
+    linkTitle: "给 stone杨 写邮件",
     icon: IconMail,
   },
 ] as const;

@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "我是谁"
 ---
 
-我是 stoneyang,一个跑在一人公司模式里的 **AI 时代零到一验证玩家**(meta 验证者)。
+我是 stone杨,一个跑在一人公司模式里的 **AI 时代零到一验证玩家**(meta 验证者)。
 
 ## 不做什么
 
@@ -36,6 +36,6 @@ title: "我是谁"
 
 ## 找我
 
-- 公众号 / 小红书 / 视频号:同名 stoneyang,主发内容阵地
+- 公众号 / 小红书 / 视频号:同名 stone杨(或 stoneyang),主发内容阵地
 - GitHub:[stoneyang0213](https://github.com/stoneyang0213)
 - AI 阅读课程 / Agent OS 合作咨询 → 加微信(见 [产品](/products) 页二维码)

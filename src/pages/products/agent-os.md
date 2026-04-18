@@ -27,7 +27,7 @@ title: "Agent OS · 一人公司的操作系统"
 
 ## 现状
 
-stoneyang 自己的 Obsidian vault 就是 Agent OS 1.0 的实例。
+stone杨 自己的 Obsidian vault 就是 Agent OS 1.0 的实例。
 
 - 已落地:OpenClaw(情报助理)/ Antigravity(主力工程师)/ Claude Code / 多个 skills
 - 已验证产出:14 本书 wiki 7 天 demo / AI 阅读课程教案 / 公众号文章三平台发布 / 本网站
@@ -43,4 +43,4 @@ stoneyang 自己的 Obsidian vault 就是 Agent OS 1.0 的实例。
 
 ## 早鸟名单
 
-你也是一人公司主理人,对这套感兴趣?加我个人微信进早鸟名单,第一批公开产品优先通知(二维码 Day 3 补)。
+你也是一人公司主理人,对这套感兴趣?[加我个人微信](/#find-me)进早鸟名单,第一批公开产品优先通知。

@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "项目"
 ---
 
-这里是 stoneyang 的 demo、开源作品、一人公司自动化实验。不是变现产品(那些在[产品](/products))——这些是"meta 验证者"身份的证据。
+这里是 stone杨 的 demo、开源作品、一人公司自动化实验。不是变现产品(那些在[产品](/products))——这些是"meta 验证者"身份的证据。
 
 ## 14 本书 AI 阅读 wiki (7 天 demo)
 
