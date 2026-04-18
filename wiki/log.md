@@ -4,6 +4,39 @@
 
 ---
 
+## 2026-04-18 17:00 | Day 2 **超额完成** ✅
+
+**交付**:
+- `src/config.ts`: SITE 换 stoneyang 定位,lang=zh-CN,timezone=Asia/Shanghai,showArchives=false,title=stoneyang,desc 定位句
+- `src/constants.ts`: SOCIALS 简化为 GitHub(stoneyang0213) + Mail(yangstone33@gmail.com)
+- `src/components/Header.astro`: nav 换 5 个中文菜单(我是谁/产品/项目/思考/资源)
+- **新建 5 个路由**(都用 AboutLayout markdown 占位模式):
+  - `src/pages/projects.md` - 项目索引(14 本书 wiki / Claude Code playbook 外链 + 更多待填)
+  - `src/pages/resources.md` - 资源(教案样本 / Agent OS 模板占位)
+  - `src/pages/products/index.md` - 产品矩阵(Agent OS + AI 阅读)
+  - `src/pages/products/ai-reading.md` - 近成品(三代师承 + 方法论 + 4 课时 + 实践发现)
+  - `src/pages/products/agent-os.md` - 近成品(5 舱室 + 方法论 + 现状 + 未来方向)
+- `src/pages/about.md`: stoneyang 身份叙事(三顶帽子 / 我相信 / 最大陷阱)
+- `src/pages/index.astro`: 去掉 AstroPaper blog 依赖,新写 Hero + 3 卡片 + 我相信 + 找我
+
+**验证**:
+- 本地 build exit 0, 46 HTML 页 (新增 /products/index, /products/ai-reading, /products/agent-os, /projects, /resources)
+- 部署成功 170 files, https://602b491d.stoneyang-top.pages.dev
+- Pagefind 提示 zh-cn 不支持 stemming, 但搜索能用
+
+**比 plan 超额**: Day 2 原计划只做"骨架 + 占位",实际 about / ai-reading / agent-os 三页已接近成品。
+
+**Day 3-5 剩余轻量任务**:
+- Day 3: 首页视觉精修(如需要),加个人微信 + 公众号二维码到 /products 页(待 stoneyang 提供 QR 图)
+- Day 4: AI 阅读 / Agent OS 页面可能升级为 .astro 加卡片视觉(非必须)
+- Day 5: `/posts` 里的 AstroPaper 英文示例博客替换为 stoneyang 公众号文章镜像
+
+**新已知坑**(Pagefind):
+- zh-cn 的搜索索引不支持词根 stemming,能用但不会匹配近似词
+- `/archives/` redirect 到 /404 时生成空 HTML 无 <html> 元素,Pagefind 警告,不阻塞
+
+---
+
 ## 2026-04-18 16:05 | Day 1 **交付目标达成** ✅
 
 - `npx wrangler pages project create stoneyang-top --production-branch=main` 创建 Pages 项目

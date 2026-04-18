@@ -1,37 +1,41 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: "我是谁"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+我是 stoneyang,一个跑在一人公司模式里的 **AI 时代零到一验证玩家**(meta 验证者)。
 
-![Astro Paper](public/astropaper-og.jpg)
+## 不做什么
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+不做 AI 教育专家(我不是),不做营销培训者,不做"知识付费大师"。
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+## 做什么
 
-## Features
+用 meta 思维验证"普通人 + AI 能不能追上专家"的路径,并把验证过的方法固化成可落地的产品:
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+- **[AI 阅读课程](/products/ai-reading)** — 给孩子,用 AI × 结构化阅读方法论
+- **[Agent OS](/products/agent-os)** — 一人公司的操作系统,我自己每天在用
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+## 三顶帽子
 
-and so much more.
+我一个人要戴三顶帽子,每天在三者之间切换:
 
-## Show your support
+- **产品经理** — 浙大管院训练出来的结构化思维 + 互联网 PM 经验
+- **代码开发** — AI 协同下的小工程师,主力工具 Claude Code
+- **自媒体创作者** — 公众号 / 小红书 / 视频号 三平台,真实感 > 营销腔
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+## 我相信
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
+- 用 meta 思维找自己的产品,不做 domain 专家(打不过真专家)
+- 60 分就发,7 天 demo 比 6 个月完美更有价值
+- AI 只压缩"抵达深沉经验的脚手架",不替代终极目标
 
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
+## 最大的陷阱
 
-Kyay zuu! 🙏🏼
+对我最危险的是"**用学习回避输出**"——我太容易用"再研究方法论 / 再装工具 / 再多读一本书"推迟真正的产出。本网站 v0 的 7 天硬截止,就是这个陷阱的体检。
+
+## 找我
+
+- 公众号 / 小红书 / 视频号:同名 stoneyang,主发内容阵地
+- GitHub:[stoneyang0213](https://github.com/stoneyang0213)
+- AI 阅读课程 / Agent OS 合作咨询 → 加微信(见 [产品](/products) 页二维码)

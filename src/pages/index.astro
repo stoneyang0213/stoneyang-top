@@ -1,111 +1,112 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
-import Card from "@/components/Card.astro";
-import getSortedPosts from "@/utils/getSortedPosts";
-import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
-
-const posts = await getCollection("blog");
-
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
-    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+    <section
+      id="hero"
+      class:list={["pt-8 pb-12", "border-b border-border"]}
+    >
+      <h1 class="my-4 text-4xl font-bold sm:my-8 sm:text-5xl">stoneyang</h1>
+      <p class="text-xl opacity-80 sm:text-2xl">
+        AI 时代零到一验证玩家 · 一人公司
       </p>
-      <p class="mt-2">
-        Read the blog posts or check
+      <p class="mt-3 text-base opacity-70 sm:text-lg">
+        不做 AI 教育专家,做"普通人 + AI 追上专家"的 demo
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
         <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/products"
+          class="rounded-lg bg-accent px-5 py-2 font-medium text-background hover:opacity-90"
         >
-          README
-        </LinkButton> for more info.
-      </p>
+          看看我的产品
+          <IconArrowRight class="inline-block rtl:-rotate-180" />
+        </LinkButton>
+        <LinkButton
+          href="/about"
+          class="rounded-lg border border-accent px-5 py-2 font-medium text-accent hover:bg-accent hover:text-background"
+        >
+          了解我是谁
+        </LinkButton>
+      </div>
+    </section>
+
+    <section
+      id="current-work"
+      class:list={["pt-12 pb-6", "border-b border-border"]}
+    >
+      <h2 class="text-2xl font-semibold tracking-wide">正在做</h2>
+      <ul class="mt-6 grid gap-5 sm:grid-cols-3">
+        <li class="rounded-lg border border-border p-5 hover:border-accent">
+          <a href="/products/agent-os" class="block">
+            <h3 class="text-lg font-semibold">Agent OS</h3>
+            <p class="mt-2 text-sm opacity-80">
+              一人公司的操作系统 · 5 大舱室 · 我自己每天在用,未来可能开放
+            </p>
+          </a>
+        </li>
+        <li class="rounded-lg border border-border p-5 hover:border-accent">
+          <a href="/products/ai-reading" class="block">
+            <h3 class="text-lg font-semibold">AI 阅读课程</h3>
+            <p class="mt-2 text-sm opacity-80">
+              12+ 岁孩子 AI 辅助深度阅读 · 接过 Adler-Foster 的第三代 ·
+              第一批教案已产出
+            </p>
+          </a>
+        </li>
+        <li class="rounded-lg border border-border p-5 hover:border-accent">
+          <a href="/projects" class="block">
+            <h3 class="text-lg font-semibold">14 本书 AI 阅读 wiki</h3>
+            <p class="mt-2 text-sm opacity-80">
+              7 天 demo · 公众号 + 小红书 + github 三平台已发布 · 证明 meta 路径
+            </p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section
+      id="beliefs"
+      class:list={["pt-12 pb-6", "border-b border-border"]}
+    >
+      <h2 class="text-2xl font-semibold tracking-wide">我相信</h2>
+      <ul class="mt-6 space-y-3 opacity-90">
+        <li>— 用 meta 思维找自己的产品,不做 domain 专家</li>
+        <li>— 60 分就发,7 天 demo 比 6 个月完美更有价值</li>
+        <li>— AI 只压缩抵达深沉经验的脚手架,不替代终极目标</li>
+      </ul>
+    </section>
+
+    <section id="find-me" class="pt-12 pb-12">
+      <h2 class="text-2xl font-semibold tracking-wide">找我</h2>
       {
-        // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+          <div class="mt-6 flex max-sm:flex-col sm:items-center">
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">链接:</div>
             <Socials />
           </div>
         )
       }
+      <p class="mt-6 opacity-80">
+        公众号 / 小红书 / 视频号:同名 <strong>stoneyang</strong>,主要内容阵地
+      </p>
+      <p class="mt-2 opacity-80">
+        AI 阅读 / Agent OS 合作咨询 → 加个人微信(二维码见
+        <a
+          href="/products"
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          >产品页</a
+        >)
+      </p>
     </section>
-
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-b border-border": recentPosts.length > 0 },
-          ]}
-        >
-          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
   </main>
   <Footer />
 </Layout>

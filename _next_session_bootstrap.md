@@ -4,7 +4,7 @@
 
 ## 当前状态快照(2026-04-18 16:05 更新)
 
-**项目阶段**: Day 1 ✅ 完成,Day 2 待进入
+**项目阶段**: Day 1 ✅ + Day 2 ✅ 超额完成,Day 3 待入
 **硬截止**: 2026-04-25
 **所在目录**: `D:\projects\stoneyang-top\`
 **github repo**: https://github.com/stoneyang0213/stoneyang-top (public)
@@ -25,12 +25,21 @@ npx wrangler pages deploy dist
 # (wrangler.jsonc 已有 project name 和 output dir,不用额外参数)
 ```
 
-**Day 2 任务**:
-- [ ] 绑定 stoneyang.top 自定义域名(需 stoneyang 告知 DNS provider)
-- [ ] 替换首页内容:stoneyang 身份 Hero + 3 张正在做卡片 + 双 CTA
-- [ ] 建 8 个路由骨架:
-  - `/about`、`/products/`、`/products/ai-reading`、`/products/agent-os`、`/projects`、`/writing`、`/resources`
-- [ ] 全局 nav 替换 AstroPaper 默认菜单
+**Day 2 完成清单**:
+- [x] SITE config 换 stoneyang 定位 + 中文化
+- [x] SOCIALS 简化为 GitHub + Mail
+- [x] Header nav 换 5 个中文菜单(我是谁 / 产品 / 项目 / 思考 / 资源)
+- [x] 新建 5 个路由占位页 + /about 重写 + /index.astro 重写
+- [x] 本地 build + wrangler pages deploy 通过
+- [x] 超额:about / ai-reading / agent-os 三页内容已近成品
+
+**Day 3-7 剩余任务(轻量)**:
+- [ ] Day 3: 绑定 stoneyang.top 自定义域名(需告知 DNS provider)
+- [ ] Day 3: 加个人微信 + 公众号 QR 到 /products 和首页(待 stoneyang 提供图片 → `public/qr-wechat.png` / `public/qr-gongzhonghao.png`)
+- [ ] Day 4 可选: 把 ai-reading / agent-os 从 .md 升级为 .astro 加卡片视觉
+- [ ] Day 5: `/posts` 里 AstroPaper 英文示例博客替换为 stoneyang 公众号文章镜像
+- [ ] Day 6: 移动端过一遍 + favicon + 自定义 OG 分享图
+- [ ] Day 7: 上线通告 + 全平台反哺
 
 **阻塞点(不急但要关注)**:
 1. **stoneyang.top DNS provider**: 在哪里买的? 决定自定义域名绑定流程
