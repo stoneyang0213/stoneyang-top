@@ -4,7 +4,93 @@
 
 ---
 
-## 2026-04-18 15:xx | Day 1 (Claude 端) | Astro 工程就绪 + 推 github
+## 2026-04-18 16:05 | Day 1 **交付目标达成** ✅
+
+- `npx wrangler pages project create stoneyang-top --production-branch=main` 创建 Pages 项目
+- `npx wrangler pages deploy dist --project-name=stoneyang-top --branch=main --commit-dirty=true` 推送 dist
+- 157 个文件上传,4.09 秒,部署成功
+- **主域名**: https://stoneyang-top.pages.dev/
+- **首次部署预览**: https://9ded4d2a.stoneyang-top.pages.dev
+
+**wrangler.jsonc 改成 Pages 专用格式**(只保留 `name` / `compatibility_date` / `pages_build_output_dir`),以后 `wrangler pages deploy` 不用额外参数。
+
+**Day 1 盘点**:
+- [x] AstroPaper starter + npm install + build(43 页)
+- [x] github public repo
+- [x] Cloudflare Pages 部署,stoneyang-top.pages.dev 可访问
+
+**Day 2 要做**:
+- [ ] 绑定 stoneyang.top 自定义域名(等 stoneyang 告知域名 provider)
+- [ ] 替换首页内容(Hero + 3 张正在做卡片 + 双 CTA)
+- [ ] 建 8 个路由骨架
+
+**历史遗留(低优先级,不急)**:
+- CF Workers 里失败的 `stoneyang-top` 服务仍连着 github repo,每次 push 会触发失败 build(不影响 Pages)。未来空时:去 CF Workers 后台 Settings → Delete 清理掉。
+
+---
+
+## 2026-04-18 15:50 | Day 1 追加 | Workers 路径放弃,切 Pages CLI 部署
+
+**第三次失败的根因**:
+```
+at async Object.afterBuildCompleted
+  (@astrojs/cloudflare/dist/utils/cloudflare-module-loader.js:128:26)
+  at async open (node:internal/fs/promises:633:25)
+```
+
+Cloudflare Workers Builds **自动识别 Astro 项目,注入 `@astrojs/cloudflare` adapter**(想做 SSR Worker)。但 AstroPaper 是纯静态 SSG 站,没有 SSR entry,adapter 的 `afterBuildCompleted` 调 `fs.open()` 找 SSR 产物找不到,爆。
+
+**这是路径选择问题,不是配置问题**。加再多 `wrangler.jsonc` 字段也绕不开 CF 自动注入 adapter 这个行为。
+
+**触发 CLAUDE.md "连续 2 次报错就停"**(实际已 3 次:resvg → wrangler.jsonc → adapter)。
+
+**决策**: 切 **wrangler CLI → Pages** 部署,绕开 Workers Builds。
+- Pages 明确当静态站部署,不注入 adapter
+- CLI 本地 build 本地 push 到 Pages,CF 侧完全不参与 build
+- 之前的 Workers 服务暂不删,占用的 `stoneyang-top.stoneyang0213.workers.dev` 子域名也无所谓(我们要的是 `*.pages.dev` 然后 `stoneyang.top`)
+
+**stoneyang 待做(必须用他的终端,Claude bash 不能触发浏览器授权)**:
+```bash
+cd D:/projects/stoneyang-top
+npx wrangler login
+# 浏览器弹出 → 点 Allow → 终端显示 "Successfully logged in"
+```
+完成后告知 Claude,Claude 跑 `npx wrangler pages deploy dist --project-name=stoneyang-top`
+
+---
+
+## 2026-04-18 15:40 | Day 1 追加 | 修 CF Workers Static Assets 部署
+
+**问题**: build ✓ 过了,但 "Deploying to Cloudflare's global network" 阶段失败
+
+**根因**: stoneyang 在 Cloudflare UI 操作时走的是 **Workers Compute 入口**,不是 Pages(URL 是 `workers/services/view/...`)。Workers + Static Assets 需要 `wrangler.jsonc` 配置文件指明静态资源目录,项目没有,所以部署死。
+
+**修复**: 加 `wrangler.jsonc`:
+- `assets.directory = ./dist` (Astro 输出)
+- `not_found_handling = 404-page`
+- `compatibility_date = 2026-04-01`
+
+commit `d8ebea5`,已 push,等 CF 重新 build + deploy。
+
+---
+
+## 2026-04-18 15:30 | Day 1 (Claude 端追加) | 修 CF Pages 构建报错
+
+**问题**: CF Pages Linux 环境 build 失败
+```
+[commonjs--resolver] @resvg/resvg-js-linux-x64-musl/resvgjs.linux-x64-musl.node
+Unexpected character
+```
+
+**根因**: `@resvg/resvg-js`(AstroPaper OG 图生成依赖)的 Linux native `.node` 二进制被 Rollup SSR build 当成 JS 文件解析,爆炸。Windows 本地 build 没事是因为 win32 binding 路径 + vite 默认不做 SSR bundle 的事。
+
+**修复**: `astro.config.ts` 的 `vite` 配置下加 `ssr.external: ["@resvg/resvg-js"]`,让 rollup 运行时 require 这个包不打包。
+
+**验证**: 本地 `npm run build` exit 0,未破坏。push 触发 CF 重 build,待 stoneyang 回报结果。
+
+---
+
+## 2026-04-18 15:00 | Day 1 (Claude 端) | Astro 工程就绪 + 推 github
 
 **Claude 自动完成部分**:
 - AstroPaper starter clone(satnaing/astro-paper,--depth 1)

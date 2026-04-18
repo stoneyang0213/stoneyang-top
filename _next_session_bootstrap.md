@@ -2,35 +2,42 @@
 
 > 每次新 Claude 会话开工**第一件事**: 读这个文件,再读 `wiki/log.md` 顶部第一条,再动手。
 
-## 当前状态快照(2026-04-18 15:xx 更新)
+## 当前状态快照(2026-04-18 16:05 更新)
 
-**项目阶段**: Day 1 进行中(Claude 端完成,stoneyang 端 Cloudflare Pages 待操作)
+**项目阶段**: Day 1 ✅ 完成,Day 2 待进入
 **硬截止**: 2026-04-25
 **所在目录**: `D:\projects\stoneyang-top\`
 **github repo**: https://github.com/stoneyang0213/stoneyang-top (public)
+**线上站点**: https://stoneyang-top.pages.dev/ (待绑 stoneyang.top)
 
-**已完成**:
+**Day 1 完成清单**:
 - [x] 项目目录 + `Claude.md` + `wiki/log.md` + bootstrap
-- [x] AstroPaper starter + npm install + build 通过(43 页)
-- [x] git init + 初次 commit
-- [x] gh repo create + push main
+- [x] AstroPaper starter + npm install + build(43 页)
+- [x] github public repo + push
+- [x] Cloudflare Pages 项目创建(wrangler CLI)
+- [x] Pages 部署,157 文件,https://stoneyang-top.pages.dev/ 可访问
 
-**stoneyang 端立即要做(Day 1 收尾)**:
-- [ ] 登录 https://dash.cloudflare.com → Workers & Pages → Create application → Pages → Connect to Git
-- [ ] 选 `stoneyang0213/stoneyang-top`,框架预设 **Astro**,构建命令 `npm run build`,输出目录 `dist`
-- [ ] Deploy → 得到 `*.pages.dev` 默认域名
-- [ ] Custom domains → 加 `stoneyang.top`(如果域名已托管在 Cloudflare,一键;否则 DNS provider 加 CNAME)
+**部署方式**: wrangler CLI(不走 CF Workers Builds 的 git 自动构建,因为 CF 会自动注入 `@astrojs/cloudflare` adapter 让 AstroPaper 静态站 build 失败)。未来部署命令:
+```bash
+cd D:/projects/stoneyang-top
+npm run build
+npx wrangler pages deploy dist
+# (wrangler.jsonc 已有 project name 和 output dir,不用额外参数)
+```
 
-**下一个 Claude 会话要做(Day 2)**:
-- [ ] 替换首页内容:stoneyang 身份定位 Hero + 3 张正在做卡片
-- [ ] 建 6 个一级路由 + 2 个产品子路由的骨架:
+**Day 2 任务**:
+- [ ] 绑定 stoneyang.top 自定义域名(需 stoneyang 告知 DNS provider)
+- [ ] 替换首页内容:stoneyang 身份 Hero + 3 张正在做卡片 + 双 CTA
+- [ ] 建 8 个路由骨架:
   - `/about`、`/products/`、`/products/ai-reading`、`/products/agent-os`、`/projects`、`/writing`、`/resources`
 - [ ] 全局 nav 替换 AstroPaper 默认菜单
 
-**阻塞点**:
-1. **Cloudflare 部署**: 需要 stoneyang 登录 CF UI 操作一次(一次性配置,之后每次 git push 自动部署)
-2. **stoneyang.top DNS provider**: 在哪里买的? 决定自定义域名配置复杂度
-3. **二维码图片**: 个人微信 + 公众号二维码待 stoneyang 提供(放 `public/qr-wechat.png` 和 `public/qr-gongzhonghao.png`)
+**阻塞点(不急但要关注)**:
+1. **stoneyang.top DNS provider**: 在哪里买的? 决定自定义域名绑定流程
+2. **二维码图片**: 个人微信 + 公众号二维码待 stoneyang 提供(放 `public/qr-wechat.png` 和 `public/qr-gongzhonghao.png`)
+
+**历史遗留(低优先级)**:
+- CF Workers 后台的 `stoneyang-top` 服务(连 github 自动 build)持续失败,不影响 Pages。空时去 Settings → Delete 清理。
 
 ## 下次开工的第一句话
 
