@@ -2,25 +2,34 @@
 
 > 每次新 Claude 会话开工**第一件事**: 读这个文件,再读 `wiki/log.md` 顶部第一条,再动手。
 
-## 当前状态快照(2026-04-18 18:xx 更新)
+## 当前状态快照(2026-04-18 15:xx 更新)
 
-**项目阶段**: Day 0 → Day 1 过渡期
+**项目阶段**: Day 1 进行中(Claude 端完成,stoneyang 端 Cloudflare Pages 待操作)
 **硬截止**: 2026-04-25
 **所在目录**: `D:\projects\stoneyang-top\`
+**github repo**: https://github.com/stoneyang0213/stoneyang-top (public)
 
 **已完成**:
-- [x] 项目目录 + `Claude.md` + `wiki/log.md`
+- [x] 项目目录 + `Claude.md` + `wiki/log.md` + bootstrap
+- [x] AstroPaper starter + npm install + build 通过(43 页)
+- [x] git init + 初次 commit
+- [x] gh repo create + push main
 
-**进行中 / 立即要做**:
-- [ ] Astro 工程初始化(推荐 AstroPaper starter)
-- [ ] 本地 `npm run dev` 能起
-- [ ] 创建 github 仓库 `stoneyang0213/stoneyang-top`(建议公开)
-- [ ] Cloudflare Pages 或 Vercel 连接仓库
-- [ ] stoneyang.top DNS CNAME 指向托管平台
+**stoneyang 端立即要做(Day 1 收尾)**:
+- [ ] 登录 https://dash.cloudflare.com → Workers & Pages → Create application → Pages → Connect to Git
+- [ ] 选 `stoneyang0213/stoneyang-top`,框架预设 **Astro**,构建命令 `npm run build`,输出目录 `dist`
+- [ ] Deploy → 得到 `*.pages.dev` 默认域名
+- [ ] Custom domains → 加 `stoneyang.top`(如果域名已托管在 Cloudflare,一键;否则 DNS provider 加 CNAME)
 
-**阻塞点(需要 stoneyang 拍板)**:
-1. **托管平台**: Cloudflare Pages(国内更稳) vs Vercel(体验更好) — Claude 推荐 Cloudflare
-2. **stoneyang.top DNS provider**: 在哪里买的域名? 需要到 provider 控制台改 DNS
+**下一个 Claude 会话要做(Day 2)**:
+- [ ] 替换首页内容:stoneyang 身份定位 Hero + 3 张正在做卡片
+- [ ] 建 6 个一级路由 + 2 个产品子路由的骨架:
+  - `/about`、`/products/`、`/products/ai-reading`、`/products/agent-os`、`/projects`、`/writing`、`/resources`
+- [ ] 全局 nav 替换 AstroPaper 默认菜单
+
+**阻塞点**:
+1. **Cloudflare 部署**: 需要 stoneyang 登录 CF UI 操作一次(一次性配置,之后每次 git push 自动部署)
+2. **stoneyang.top DNS provider**: 在哪里买的? 决定自定义域名配置复杂度
 3. **二维码图片**: 个人微信 + 公众号二维码待 stoneyang 提供(放 `public/qr-wechat.png` 和 `public/qr-gongzhonghao.png`)
 
 ## 下次开工的第一句话
