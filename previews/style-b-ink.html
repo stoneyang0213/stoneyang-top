@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>方案 B · 东方手记 Paper &amp; Ink · stoneyang.top 预览</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Noto+Serif+SC:wght@400;500;700;900&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f3ee;
+        --ink: #1a1a1a;
+        --red: #c41e3a;
+        --gold: #c9b896;
+        --muted: #5f5a55;
+        --line: rgba(26, 26, 26, 0.14);
+        --paper: #faf8f3;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Serif SC", "Fraunces", serif;
+        line-height: 1.8;
+        min-height: 100vh;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 20% 30%,
+          rgba(201, 184, 150, 0.08) 0,
+          transparent 40%
+        ), radial-gradient(
+            circle at 80% 70%,
+            rgba(196, 30, 58, 0.04) 0,
+            transparent 40%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+      .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 32px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* === NAV === */
+      .nav {
+        padding: 32px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1.5px solid var(--line);
+      }
+      .nav .logo {
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+        font-style: italic;
+      }
+      .nav .logo .cn {
+        font-family: "Noto Serif SC", serif;
+        font-style: normal;
+        margin-right: 4px;
+      }
+      .nav ul {
+        display: flex;
+        gap: 36px;
+        list-style: none;
+      }
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 15px;
+        font-family: "Noto Serif SC";
+        transition: color 0.2s;
+      }
+      .nav a:hover {
+        color: var(--red);
+      }
+
+      /* === HERO === */
+      .hero {
+        padding: 110px 0 100px;
+        text-align: center;
+        position: relative;
+      }
+      .hero .flourish-top {
+        margin: 0 auto 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: var(--gold);
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 14px;
+        letter-spacing: 0.2em;
+      }
+      .hero .flourish-top::before,
+      .hero .flourish-top::after {
+        content: "";
+        width: 48px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(56px, 9vw, 120px);
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        margin-bottom: 8px;
+      }
+      .hero h1 .cn {
+        font-family: "Noto Serif SC", serif;
+        font-weight: 900;
+        display: block;
+        font-size: clamp(36px, 5.5vw, 68px);
+        line-height: 1.1;
+        margin-bottom: 12px;
+        position: relative;
+        display: inline-block;
+      }
+      .hero h1 .cn::after {
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: -8px;
+        width: 12px;
+        height: 12px;
+        background: var(--red);
+        border-radius: 50%;
+      }
+      .hero .sub-line {
+        font-family: "Noto Serif SC", serif;
+        font-size: clamp(18px, 2vw, 22px);
+        margin: 28px auto 12px;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+      }
+      .hero .sub-line::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        right: 25%;
+        height: 3px;
+        background: var(--red);
+      }
+      .hero .tagline {
+        color: var(--muted);
+        margin: 32px auto 48px;
+        max-width: 560px;
+        font-family: "Noto Serif SC", serif;
+        font-size: 16px;
+        line-height: 1.85;
+      }
+      .hero .tagline em {
+        color: var(--red);
+        font-style: normal;
+      }
+      .cta-group {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        border-radius: 0;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 15px;
+        transition: all 0.2s;
+        font-family: "Noto Serif SC", serif;
+        border: 1.5px solid var(--ink);
+      }
+      .cta-primary {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .cta-primary:hover {
+        background: var(--red);
+        border-color: var(--red);
+      }
+      .cta-secondary {
+        background: transparent;
+        color: var(--ink);
+      }
+      .cta-secondary:hover {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      /* Red seal in hero corner */
+      .hero .seal {
+        position: absolute;
+        top: 40px;
+        right: 32px;
+        width: 88px;
+        height: 88px;
+        border: 2px solid var(--red);
+        border-radius: 6px;
+        color: var(--red);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-8deg);
+        font-family: "Noto Serif SC", serif;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 1.3;
+        text-align: center;
+        letter-spacing: 0.05em;
+      }
+      .hero .seal .stone {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-style: italic;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        margin-top: 4px;
+        opacity: 0.7;
+      }
+
+      /* === SECTION === */
+      .section {
+        padding: 100px 0;
+        border-top: 1px solid var(--line);
+      }
+      .kicker {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 15px;
+        letter-spacing: 0.14em;
+        color: var(--red);
+        margin-bottom: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .kicker::before {
+        content: "§";
+        font-size: 24px;
+        font-style: normal;
+        opacity: 0.5;
+      }
+      .section h2 {
+        font-family: "Noto Serif SC", serif;
+        font-weight: 900;
+        font-size: clamp(32px, 4.5vw, 56px);
+        line-height: 1.15;
+        margin-bottom: 60px;
+        letter-spacing: -0.02em;
+        max-width: 800px;
+      }
+
+      /* === EVIDENCE · old newspaper === */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border-top: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+      }
+      .evidence {
+        padding: 40px 28px;
+        border-right: 1px solid var(--line);
+        text-align: center;
+      }
+      .evidence:last-child {
+        border-right: none;
+      }
+      .evidence .num {
+        font-family: "Fraunces", serif;
+        font-weight: 900;
+        font-size: clamp(64px, 8vw, 112px);
+        color: var(--ink);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 4px;
+      }
+      .evidence .num small {
+        font-family: "Noto Serif SC", serif;
+        font-size: 0.25em;
+        margin-left: 6px;
+        font-weight: 500;
+        color: var(--red);
+      }
+      .evidence .sep {
+        width: 36px;
+        height: 1px;
+        background: var(--red);
+        margin: 16px auto 16px;
+      }
+      .evidence .label {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+        font-family: "Noto Serif SC", serif;
+      }
+
+      /* === LAYERS · drop cap + pull quote === */
+      .layers {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .layer {
+        padding: 40px 36px 36px;
+        background: var(--paper);
+        position: relative;
+        border: 1px solid var(--line);
+      }
+      .layer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-left: 20px solid transparent;
+        border-bottom: 20px solid var(--bg);
+        border-right: 0;
+        border-top: 0;
+        filter: drop-shadow(-2px 2px 1px rgba(0, 0, 0, 0.06));
+      }
+      .layer .layer-n {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 74px;
+        color: var(--red);
+        line-height: 0.8;
+        letter-spacing: -0.02em;
+        float: left;
+        margin: 4px 16px 0 0;
+        padding-top: 6px;
+      }
+      .layer .cat {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .layer h3 {
+        font-family: "Noto Serif SC";
+        font-weight: 900;
+        font-size: 26px;
+        margin-bottom: 14px;
+        letter-spacing: -0.01em;
+      }
+      .layer p {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.85;
+        font-family: "Noto Serif SC", serif;
+      }
+
+      /* === PRODUCTS · book folded corner === */
+      .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .product {
+        padding: 48px 40px;
+        background: var(--paper);
+        border: 1.5px solid var(--ink);
+        position: relative;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 320px;
+        transition: all 0.25s;
+        color: var(--ink);
+      }
+      .product::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(
+          225deg,
+          var(--bg) 0 50%,
+          var(--ink) 50% 52%,
+          transparent 52%
+        );
+        border-right: 1.5px solid var(--ink);
+        border-bottom: 1.5px solid var(--ink);
+      }
+      .product:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(26, 26, 26, 0.08);
+      }
+      .product .cat {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 14px;
+        color: var(--red);
+        margin-bottom: 16px;
+      }
+      .product h3 {
+        font-family: "Noto Serif SC";
+        font-weight: 900;
+        font-size: 40px;
+        margin-bottom: 20px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .product h3 .en {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 0.7em;
+        display: block;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .product p {
+        font-size: 15px;
+        color: var(--muted);
+        margin-bottom: 32px;
+        line-height: 1.85;
+        font-family: "Noto Serif SC", serif;
+      }
+      .product .more {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        border-bottom: 1px solid var(--red);
+        padding-bottom: 3px;
+        display: inline-block;
+        align-self: flex-start;
+        font-family: "Noto Serif SC", serif;
+      }
+
+      /* === FIND / QR === */
+      .qr-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .qr-card {
+        padding: 28px 22px 32px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        text-align: center;
+        position: relative;
+      }
+      .qr-card::after {
+        content: "";
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 1px;
+        background: var(--red);
+      }
+      .qr-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        display: block;
+        object-fit: contain;
+      }
+      .qr-card .plat-en {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 12px;
+        color: var(--red);
+        margin-top: 18px;
+        margin-bottom: 4px;
+      }
+      .qr-card .plat {
+        font-family: "Noto Serif SC";
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 6px;
+      }
+      .qr-card .desc {
+        color: var(--muted);
+        font-size: 13px;
+        font-family: "Noto Serif SC";
+      }
+
+      /* === FOOTER === */
+      .footer {
+        padding: 60px 0 40px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+        border-top: 1px solid var(--line);
+        font-family: "Fraunces", serif;
+        font-style: italic;
+      }
+      .footer .scheme-mark {
+        color: var(--red);
+        font-size: 12px;
+        margin-bottom: 8px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 64px 0;
+        }
+        .hero .seal {
+          top: 12px;
+          right: 16px;
+          width: 64px;
+          height: 64px;
+          font-size: 11px;
+        }
+        .layers,
+        .products,
+        .qr-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .evidence-grid {
+          grid-template-columns: 1fr;
+        }
+        .evidence {
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+        }
+        .nav ul {
+          display: none;
+        }
+        .section {
+          padding: 64px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- NAV -->
+      <nav class="nav">
+        <div class="logo"><span class="cn">超级个体</span>OS</div>
+        <ul>
+          <li><a href="#hero">首页</a></li>
+          <li><a href="#evidence">证据</a></li>
+          <li><a href="#layers">系统</a></li>
+          <li><a href="#products">产品</a></li>
+          <li><a href="#find">找我</a></li>
+        </ul>
+      </nav>
+
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="seal">
+          验证<br />stone<br /><span class="stone">× 2026</span>
+        </div>
+        <div class="flourish-top">零到一验证 · ZERO TO ONE</div>
+        <h1>
+          <span class="cn">超级个体</span>
+          <em>OS</em>
+        </h1>
+        <p class="sub-line">stone杨 · 零到一验证手记</p>
+        <p class="tagline">
+          一个人 × 一群 Agent,用 <em>meta 思维</em> 重造一人公司。<br />
+          不做 AI 教育专家,做"普通人 + AI 追上专家"的 demo。
+        </p>
+        <div class="cta-group">
+          <a href="#products" class="cta cta-primary">看我的产品矩阵 →</a>
+          <a href="#find" class="cta cta-secondary">加我微信聊聊</a>
+        </div>
+      </section>
+
+      <!-- EVIDENCE · old newspaper -->
+      <section class="section" id="evidence">
+        <div class="kicker">已交付的证据 · Evidence</div>
+        <h2>用产出说话</h2>
+        <div class="evidence-grid">
+          <div class="evidence">
+            <div class="num">14<small>本</small></div>
+            <div class="sep"></div>
+            <div class="label">
+              AI 阅读 wiki · 7 天 demo<br />公众号 + 小红书 + GitHub
+              三平台已发布
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="num">4<small>课时</small></div>
+            <div class="sep"></div>
+            <div class="label">
+              AI 阅读课程《杀死一只知更鸟》<br />第一批完整教案已产出
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="num">1.0</div>
+            <div class="sep"></div>
+            <div class="label">
+              Agent OS 自用验证中<br />5 大舱室架构运行超 30 天
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LAYERS · drop caps -->
+      <section class="section" id="layers">
+        <div class="kicker">系统架构 · The Four Layers</div>
+        <h2>一人公司的四层系统</h2>
+        <div class="layers">
+          <div class="layer">
+            <div class="layer-n">01</div>
+            <div class="cat">Cognition · 认知</div>
+            <h3>Meta 思维</h3>
+            <p>
+              不做 domain 专家(打不过真专家),做"普通人 + AI 追上专家"的 meta
+              验证者。在 meta 层找杠杆。
+            </p>
+          </div>
+          <div class="layer">
+            <div class="layer-n">02</div>
+            <div class="cat">Method · 方法</div>
+            <h3>AI 流水线</h3>
+            <p>
+              batch_v0 → raw 打靶 → 成品。用 AI 压缩"抵达深沉经验"的脚手架,
+              不替代终极目标。
+            </p>
+          </div>
+          <div class="layer">
+            <div class="layer-n">03</div>
+            <div class="cat">System · 系统</div>
+            <h3>Agent OS</h3>
+            <p>
+              一人公司的操作系统。5 大舱室(Kernel / Sensors / Brain /
+              Actuators / Memory)各司其职。
+            </p>
+          </div>
+          <div class="layer">
+            <div class="layer-n">04</div>
+            <div class="cat">Spirit · 精神</div>
+            <h3>60 分就发</h3>
+            <p>
+              7 天 demo 比 6 个月完美更有价值。行动 &gt; 计划,结果 &gt;
+              感受,过滤 &gt; 收集。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="section" id="products">
+        <div class="kicker">正在做 · In Progress</div>
+        <h2>两个产品,一套 meta 方法论</h2>
+        <div class="products">
+          <a href="#" class="product">
+            <div>
+              <div class="cat">Product · 一人公司 OS</div>
+              <h3>
+                Agent OS <span class="en">the OS for solo founders</span>
+              </h3>
+              <p>
+                5 大舱室 × 华为 BLM / IPD / IPMS
+                方法论,把一人公司的碎片精力重新组织。我自己每天在用。
+              </p>
+            </div>
+            <span class="more">了解详情与早鸟名单 →</span>
+          </a>
+          <a href="#" class="product">
+            <div>
+              <div class="cat">Product · 12+ 岁 AI 阅读课</div>
+              <h3>
+                AI 阅读课程 <span class="en">reading with AI, for kids</span>
+              </h3>
+              <p>
+                接过 Adler(1972)→ Foster(2003)的三代师承。AI 流水线产出 4
+                课时教案第一批。
+              </p>
+            </div>
+            <span class="more">了解课程与试听 →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- FIND -->
+      <section class="section" id="find">
+        <div class="kicker">找我 · Find Me</div>
+        <h2>三个平台 · 同名 stone杨</h2>
+        <div class="qr-grid">
+          <div class="qr-card">
+            <img src="../public/qr-wechat.png" alt="个人微信二维码" />
+            <div class="plat-en">Personal WeChat</div>
+            <div class="plat">个人微信</div>
+            <div class="desc">产品合作 · 早鸟名单 · 1:1 交流</div>
+          </div>
+          <div class="qr-card">
+            <img src="../public/qr-gongzhonghao.png" alt="公众号二维码" />
+            <div class="plat-en">WeChat Channel</div>
+            <div class="plat">公众号</div>
+            <div class="desc">长文 · 深度思考 · 方法论</div>
+          </div>
+          <div class="qr-card">
+            <img src="../public/qr-xiaohongshu.png" alt="小红书二维码" />
+            <div class="plat-en">Xiaohongshu</div>
+            <div class="plat">小红书</div>
+            <div class="desc">短内容 · 灵感碎片 · 日常</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="scheme-mark">Scheme B · Paper &amp; Ink</div>
+        <p>stoneyang.top 预览 · Fraunces + Noto Serif SC · 东方手记气质</p>
+      </footer>
+    </div>
+  </body>
+</html>

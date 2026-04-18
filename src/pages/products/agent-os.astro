@@ -1,0 +1,534 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+const title = "Agent OS · 一人公司的操作系统";
+const description =
+  "Agent OS 把一人公司重构成 5 大舱室,方法论来自华为 BLM/IPD/IPMS。stone杨 2.0 自用中,未来可能开放模板 / 工具集 / 陪跑。";
+---
+
+<Layout title={`${title} | stone杨`} description={description}>
+  <Header />
+  <main id="main-content" class="landing-layout flex-1 pb-24">
+    <!-- ========== HERO ========== -->
+    <section class="pt-16 pb-16 sm:pt-24 sm:pb-20">
+      <div class="section-kicker">Product · 一人公司 OS</div>
+      <h1
+        class="font-display text-5xl leading-[1.02] font-black tracking-[-0.025em] sm:text-7xl"
+      >
+        Agent <span class="text-accent font-mono-en font-bold">OS</span>
+      </h1>
+      <p class="mt-5 text-xl font-medium font-display sm:text-2xl">
+        一人公司的操作系统 · 2.0 自用中
+      </p>
+      <p
+        class="mt-6 max-w-2xl text-base leading-[1.7] text-muted sm:text-lg"
+      >
+        你的员工是 AI(Claude Code / skills / workflows),这里是他们协同工作的
+        OS。把一人公司最大的陷阱 — 精力被碎片化拖垮 — 变成 5 大舱室的流水协作。
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a
+          href="/#find-me"
+          class="inline-flex items-center gap-1.5 rounded-md bg-foreground px-6 py-3.5 font-medium text-background transition hover:bg-accent"
+        >
+          加我微信进早鸟名单 →
+        </a>
+        <a
+          href="/products"
+          class="inline-flex items-center gap-1.5 rounded-md border border-foreground px-6 py-3.5 font-medium text-foreground transition hover:bg-foreground hover:text-background"
+        >
+          看其他产品
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== WHY ========== -->
+    <section
+      class="border-t border-b py-20"
+      style="border-color: var(--color-border)"
+    >
+      <div class="section-kicker">Why · 为什么需要</div>
+      <h2 class="section-h2">一人公司的碎片精力诅咒</h2>
+      <div class="grid gap-10 md:grid-cols-2">
+        <div>
+          <h3 class="font-display text-2xl font-bold mb-4">
+            常见问题(你可能正在经历)
+          </h3>
+          <ul class="space-y-3 text-muted leading-relaxed">
+            <li>— 一天切 5 种角色(PM / 开发 / 内容 / 营销 / 客服)</li>
+            <li>— 每个任务都开个头,没一个做到位</li>
+            <li>— AI 工具用了一堆,但没一条能跑通的流水线</li>
+            <li>— 月底回头看,学习 &gt; 产出</li>
+            <li>— Obsidian 笔记越来越多,调用不起来</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl font-bold mb-4">
+            Agent OS 的做法
+          </h3>
+          <ul class="space-y-3 text-muted leading-relaxed">
+            <li>
+              + 按 <strong class="text-foreground">输入 → 处理 → 输出</strong>
+              把工作重新分舱
+            </li>
+            <li>+ 每个舱室只专注一件事,AI 员工在各自舱里跑</li>
+            <li>+ 跨舱协议固定(.agents 规则),信息不漏</li>
+            <li>+ 交付物定向入 04-Memory 变现位</li>
+            <li>+ 非核心 60 分就发,核心完美主义只留给关键 10%</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5 CHAMBERS 详解 ========== -->
+    <section class="py-20">
+      <div class="section-kicker">5 大舱室详解 · Architecture</div>
+      <h2 class="section-h2">每个舱室只做一件事</h2>
+      <div class="space-y-8">
+        <article class="chamber-detail">
+          <div class="chamber-detail-head">
+            <div class="chamber-detail-num">00</div>
+            <div>
+              <div class="chamber-detail-cat">KERNEL · 系统内核</div>
+              <h3 class="chamber-detail-h3">大脑中枢配置文件</h3>
+            </div>
+          </div>
+          <div class="chamber-detail-body">
+            <p class="mb-4">
+              工作流模板、skill 清单、身份认知、边界规则,所有舱室的"规范"都在这里注入。其他舱室开工前先读 kernel,行为才对齐。
+            </p>
+            <div class="chamber-detail-tags">
+              <span>.agents</span>
+              <span>技能资产目录.md</span>
+              <span>身份认知</span>
+              <span>精力节律</span>
+              <span>边界规则</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="chamber-detail">
+          <div class="chamber-detail-head">
+            <div class="chamber-detail-num">01</div>
+            <div>
+              <div class="chamber-detail-cat">SENSORS · 感知输入舱</div>
+              <h3 class="chamber-detail-h3">信息接收器</h3>
+            </div>
+          </div>
+          <div class="chamber-detail-body">
+            <p class="mb-4">
+              所有外部信号的第一落点。OpenClaw 定时推送情报、日常碎片 Inbox、
+              偏离主航道的灵感走"冷藏库"。<strong class="text-foreground"
+                >过滤 &gt; 收集</strong
+              > — 宁可错杀一千,不收无效垃圾。
+            </p>
+            <div class="chamber-detail-tags">
+              <span>001-Inbox</span>
+              <span>市场洞察雷达</span>
+              <span>灵感冷藏库</span>
+              <span>Karpathy 周报</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="chamber-detail">
+          <div class="chamber-detail-head">
+            <div class="chamber-detail-num">02</div>
+            <div>
+              <div class="chamber-detail-cat">BRAIN · 决策中枢</div>
+              <h3 class="chamber-detail-h3">规划大脑</h3>
+            </div>
+          </div>
+          <div class="chamber-detail-body">
+            <p class="mb-4">
+              对应华为 BLM / DSTE。战略底座、业务规划、产品矩阵设计都在这里成型。
+              年度 / 季度 / 每周的作战目标从这里派发到下游舱室。
+            </p>
+            <div class="chamber-detail-tags">
+              <span>00-战略底座</span>
+              <span>02-业务规划</span>
+              <span>产品矩阵设计</span>
+              <span>每周复盘 KPI</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="chamber-detail">
+          <div class="chamber-detail-head">
+            <div class="chamber-detail-num">03</div>
+            <div>
+              <div class="chamber-detail-cat">ACTUATORS · 研发引擎</div>
+              <h3 class="chamber-detail-h3">主力产能位</h3>
+            </div>
+          </div>
+          <div class="chamber-detail-body">
+            <p class="mb-4">
+              对应华为 IPD。Antigravity / Claude Code 在这里写代码、拆教案、
+              跑 AI 流水线。产能最密集的车间,AI 员工(skills)都挂在这里。
+            </p>
+            <div class="chamber-detail-tags">
+              <span>IPD 产品研发库</span>
+              <span>技能源码库</span>
+              <span>frontend-slides</span>
+              <span>Claude Code skills</span>
+              <span>教案 pipeline</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="chamber-detail">
+          <div class="chamber-detail-head">
+            <div class="chamber-detail-num">04</div>
+            <div>
+              <div class="chamber-detail-cat">MEMORY · 交付与输出</div>
+              <h3 class="chamber-detail-h3">变现资产沉淀</h3>
+            </div>
+          </div>
+          <div class="chamber-detail-body">
+            <p class="mb-4">
+              对应华为 IPMS。所有"能换钱 / 能影响人"的成品 — HTML /
+              PPT / 教案 / 公众号文章 — 从 03 Actuators 剥离源码后,落入 04 等待交付。这里是钱的出口。
+            </p>
+            <div class="chamber-detail-tags">
+              <span>IPMS 营销分发</span>
+              <span>最终交付产品</span>
+              <span>变现资产</span>
+              <span>公众号 / 小红书发布</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== 方法论来源 ========== -->
+    <section
+      class="border-t py-20"
+      style="border-color: var(--color-border)"
+    >
+      <div class="section-kicker">方法论来源 · Foundation</div>
+      <h2 class="section-h2">华为 BLM / IPD / IPMS 的一人公司翻译</h2>
+      <p class="mb-10 max-w-2xl text-muted leading-relaxed">
+        Agent OS 不是临时拼凑,是把华为几十年验证过的业务引擎翻译成一人公司可执行的版本。企业战壕里打出来的方法论,一人公司同样适用。
+      </p>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-title">BLM</div>
+          <div class="method-sub">业务领先模型</div>
+          <p>
+            对应 <strong>02 Brain</strong> 的战略底座。从"战略意图 → 差距分析 → 战略意图"推演,而不是拍脑袋定方向。
+          </p>
+        </div>
+        <div class="method-card">
+          <div class="method-title">IPD</div>
+          <div class="method-sub">集成产品开发</div>
+          <p>
+            对应 <strong>03 Actuators</strong> 的研发流程。从"需求 → 概念 → 计划 → 开发 → 验证 → 发布"的结构化管线,而不是"有灵感就做"。
+          </p>
+        </div>
+        <div class="method-card">
+          <div class="method-title">IPMS</div>
+          <div class="method-sub">集成营销与销售</div>
+          <p>
+            对应 <strong>04 Memory</strong> 的交付与分发。产品完成后如何触达用户、如何变现 — 一套从战略到落地的营销链。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 三条原则 ========== -->
+    <section class="py-20">
+      <div class="section-kicker">Core Principles</div>
+      <h2 class="section-h2">三条核心行动原则</h2>
+      <div class="space-y-6">
+        <div class="principle">
+          <div class="principle-num">01</div>
+          <div>
+            <h3 class="principle-h">过滤 &gt; 收集</h3>
+            <p>宁可错杀一千,不收无效垃圾。Inbox 的第一要务是"筛",不是"囤"。</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-num">02</div>
+          <div>
+            <h3 class="principle-h">行动 &gt; 计划</h3>
+            <p>
+              优先用粗糙的 MVP 跑通一圈(如"试听课 MVP"驱动产品研发),再去优化细节。
+            </p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-num">03</div>
+          <div>
+            <h3 class="principle-h">结果 &gt; 感受</h3>
+            <p>
+              Agent OS 是用来打仗换钱的流水线,不是修身养性的日记本。
+              <strong class="text-foreground">核心完美,非核心 60 分</strong>
+              。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 现状 ========== -->
+    <section
+      class="border-t border-b py-20"
+      style="border-color: var(--color-border)"
+    >
+      <div class="section-kicker">现状 · Status</div>
+      <h2 class="section-h2">2.0 自用验证中 · 30+ 天</h2>
+      <div class="grid gap-10 md:grid-cols-2">
+        <div>
+          <h3 class="font-display text-2xl font-bold mb-4">已落地组件</h3>
+          <ul class="space-y-3 text-muted leading-relaxed">
+            <li>— OpenClaw(情报助理,可写 Inbox / 市场雷达)</li>
+            <li>— Antigravity(主力工程师,读写全库)</li>
+            <li>— Claude Code + 多个自写 skills</li>
+            <li>— obsidian-quick-note / getnote-digest 等工具链</li>
+            <li>— 技能资产目录.md(全局 skill 清单)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl font-bold mb-4">已验证产出</h3>
+          <ul class="space-y-3 text-muted leading-relaxed">
+            <li>— 14 本书 AI 阅读教学论 wiki(7 天 demo)</li>
+            <li>— AI 阅读课程首批 4 课时教案《杀死一只知更鸟》</li>
+            <li>— 公众号文章《接过阿德勒 50 年前的叹息》三平台发布</li>
+            <li>— 本网站 stoneyang.top(你现在看的这个)</li>
+            <li>— /exit → Get 笔记工作流自动总结</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 rounded-lg border border-accent/30 bg-accent/5 p-6">
+        <div class="text-sm font-mono-en font-bold text-accent tracking-widest mb-2">
+          V2.0 架构预判
+        </div>
+        <p class="text-muted leading-relaxed">
+          多业务线隔离 · 个人层不变,业务层独立。当出现第二条业务线(如跨境电商)时,00-战略底座 回归为纯粹的"个人底座",现有 02-业务规划 / 03-交付 都会被迁出到各自业务线矩阵下,彼此不打架。
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== 未来方向 ========== -->
+    <section class="py-20">
+      <div class="section-kicker">Future · 未来方向</div>
+      <h2 class="section-h2">不画大饼,只说已知可能</h2>
+      <div class="mt-4 grid gap-6 md:grid-cols-3">
+        <div class="future-card">
+          <div class="future-level">01 · 最轻量</div>
+          <h3 class="future-h">模板 + 方法论公开化</h3>
+          <p>
+            把 5 舱室 Obsidian 模板(去敏版)+ .agents 规则开源,任何人 fork 即用。
+          </p>
+        </div>
+        <div class="future-card">
+          <div class="future-level">02 · 中等</div>
+          <h3 class="future-h">工具集 / skill 包分发</h3>
+          <p>
+            把自写 skills(obsidian-quick-note 等)打包成 Claude Code plugin,一键安装到他人 vault。
+          </p>
+        </div>
+        <div class="future-card">
+          <div class="future-level">03 · 最重</div>
+          <h3 class="future-h">1:1 陪跑一人公司主理人</h3>
+          <p>
+            深度陪跑少数主理人搭建自己的 Agent OS,陪跑期 3 个月,付费闭环。
+          </p>
+        </div>
+      </div>
+      <p class="mt-8 text-sm text-muted italic">
+        具体形态等第一批用户需求验证后定 · 不承诺未发生的功能
+      </p>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="py-16 text-center">
+      <h2
+        class="font-display text-3xl sm:text-5xl font-black tracking-tight mb-6"
+      >
+        你也是一人公司主理人?
+      </h2>
+      <p class="text-muted max-w-xl mx-auto leading-relaxed mb-10">
+        对 Agent OS 感兴趣,想聊聊你的"精力碎片化"现状,或想进早鸟名单第一批拿模板?扫码加我个人微信,我们私聊。
+      </p>
+      <a
+        href="/#find-me"
+        class="inline-flex items-center gap-2 rounded-md bg-foreground px-8 py-4 font-medium text-background transition hover:bg-accent"
+      >
+        加我个人微信 →
+      </a>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* === Chamber detail === */
+  .chamber-detail {
+    padding: 36px 32px;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.6);
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  :global(html[data-theme="dark"]) .chamber-detail {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .chamber-detail:hover {
+    border-color: var(--color-accent);
+  }
+  .chamber-detail-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .chamber-detail-num {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.85;
+    color: var(--color-accent);
+    letter-spacing: -0.04em;
+  }
+  .chamber-detail-cat {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .chamber-detail-h3 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .chamber-detail-body {
+    padding-left: 84px;
+  }
+  .chamber-detail-body p {
+    color: var(--color-muted);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .chamber-detail-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .chamber-detail-tags span {
+    padding: 4px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-muted);
+    background: var(--color-background);
+  }
+
+  /* === Method grid (BLM/IPD/IPMS) === */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .method-card {
+    padding: 28px 24px;
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+  .method-title {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 42px;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .method-sub {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    opacity: 0.7;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .method-card p {
+    font-size: 14px;
+    line-height: 1.75;
+    opacity: 0.9;
+  }
+  .method-card :global(strong) {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  /* === Principles === */
+  .principle {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .principle-num {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--color-accent);
+    line-height: 0.9;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+  .principle-h {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .principle p {
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  /* === Future cards === */
+  .future-card {
+    padding: 28px 24px;
+    border: 1px solid var(--color-border);
+  }
+  .future-level {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .future-h {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .future-card p {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 768px) {
+    .chamber-detail-body {
+      padding-left: 0;
+    }
+    .method-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

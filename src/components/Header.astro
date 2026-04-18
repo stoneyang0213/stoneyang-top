@@ -44,9 +44,9 @@ const isActive = (path: string) => {
   >
     <a
       href="/"
-      class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
+      class="absolute py-1 text-2xl leading-8 font-black whitespace-nowrap font-display tracking-tight sm:static sm:my-auto sm:text-3xl sm:leading-none"
     >
-      {SITE.title}
+      超级个体 <span class="text-accent font-mono-en font-bold">OS</span>
     </a>
     <nav
       id="nav-menu"
@@ -72,14 +72,23 @@ const isActive = (path: string) => {
         ]}
       >
         <li class="col-span-2">
-          <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+          <a
+            href="/about"
+            class:list={[
+              "nav-link text-base font-medium",
+              { "active-nav": isActive("/about") },
+            ]}
+          >
             我是谁
           </a>
         </li>
         <li class="col-span-2">
           <a
             href="/products"
-            class:list={{ "active-nav": isActive("/products") }}
+            class:list={[
+              "nav-link text-base font-medium",
+              { "active-nav": isActive("/products") },
+            ]}
           >
             产品
           </a>
@@ -87,20 +96,32 @@ const isActive = (path: string) => {
         <li class="col-span-2">
           <a
             href="/projects"
-            class:list={{ "active-nav": isActive("/projects") }}
+            class:list={[
+              "nav-link text-base font-medium",
+              { "active-nav": isActive("/projects") },
+            ]}
           >
             项目
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
+          <a
+            href="/posts"
+            class:list={[
+              "nav-link text-base font-medium",
+              { "active-nav": isActive("/posts") },
+            ]}
+          >
             思考
           </a>
         </li>
         <li class="col-span-2">
           <a
             href="/resources"
-            class:list={{ "active-nav": isActive("/resources") }}
+            class:list={[
+              "nav-link text-base font-medium",
+              { "active-nav": isActive("/resources") },
+            ]}
           >
             资源
           </a>

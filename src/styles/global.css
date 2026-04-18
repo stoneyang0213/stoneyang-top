@@ -3,30 +3,43 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* ===== Bauhaus Blueprint · Light ===== */
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+  --background: #faf9f7;
+  --foreground: #1a1a1a;
+  --accent: #1d4ed8;
+  --muted: #6b7280;
+  --border: rgba(26, 26, 26, 0.1);
+  --line-soft: rgba(26, 26, 26, 0.06);
+  --grid: rgba(29, 78, 216, 0.055);
 }
 
+/* ===== Bauhaus Blueprint · Dark ===== */
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
+  --background: #0f111a;
+  --foreground: #e8e9ef;
+  --accent: #60a5fa;
+  --muted: #94a3b8;
+  --border: rgba(232, 233, 239, 0.12);
+  --line-soft: rgba(232, 233, 239, 0.06);
+  --grid: rgba(96, 165, 250, 0.07);
 }
 
 @theme inline {
-  --font-app: var(--font-google-sans-code);
+  --font-app:
+    "Noto Sans SC", "Space Grotesk", -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: "Noto Serif SC", "Source Han Serif SC", serif;
+  --font-mono:
+    "Space Grotesk", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-line-soft: var(--line-soft);
+  --color-grid: var(--grid);
 }
 
 @layer base {
@@ -40,6 +53,10 @@ html[data-theme="dark"] {
   }
   body {
     @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
   a,
   button {
@@ -59,12 +76,55 @@ html[data-theme="dark"] {
   @apply mx-auto w-full max-w-app px-4;
 }
 
-.active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-8;
+@utility max-w-landing {
+  max-width: 1180px;
+}
+
+@utility landing-layout {
+  @apply mx-auto w-full max-w-landing px-8;
+}
+
+/* Display font utility (serif, 用于大字标题) */
+@utility font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "kern" 1;
+}
+
+/* Mono / en serif (用于数字、英文小标) */
+@utility font-mono-en {
+  font-family: var(--font-mono);
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 6px;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s;
+}
+.nav-link:hover {
+  color: var(--color-foreground);
+}
+.nav-link:hover::after,
+.nav-link.active-nav::after {
+  transform: scaleX(1);
+}
+.nav-link.active-nav {
+  color: var(--color-foreground);
 }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 1rem;
 }

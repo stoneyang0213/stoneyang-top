@@ -1,0 +1,675 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+const title = "AI 阅读系列课 · 给 12+ 岁孩子的深度阅读解法";
+const description =
+  "AI 阅读流水线产出 40 课时经典书籍系列课。接过 Adler(1972)→ Foster(2003)→ 王荣生(2012)三代师承,AI 索道只放山腰,陡峰留给孩子自己。";
+---
+
+<Layout title={`${title} | stone杨`} description={description}>
+  <Header />
+  <main id="main-content" class="landing-layout flex-1 pb-24">
+    <!-- ========== HERO ========== -->
+    <section class="pt-16 pb-16 sm:pt-24 sm:pb-20">
+      <div class="section-kicker">Product · 12+ 岁 AI 阅读课</div>
+      <h1
+        class="font-display text-4xl leading-[1.02] font-black tracking-[-0.025em] sm:text-6xl"
+      >
+        AI 阅读系列课
+      </h1>
+      <p class="mt-5 text-xl font-medium font-display sm:text-2xl">
+        40 课时经典书籍 · 10 本 × 4 课时 · AI 流水线产出
+      </p>
+      <p
+        class="mt-6 max-w-2xl text-base leading-[1.7] text-muted sm:text-lg"
+      >
+        给 12+ 岁孩子,用 AI × 结构化阅读方法论学会深度阅读。<br />
+        接过 Adler(1972)→ Foster(2003)→ 王荣生(2012)三代师承,AI 索道只放山腰,陡峰留给孩子自己爬。
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a
+          href="/#find-me"
+          class="inline-flex items-center gap-1.5 rounded-md bg-foreground px-6 py-3.5 font-medium text-background transition hover:bg-accent"
+        >
+          加微信拿教案样本 →
+        </a>
+        <a
+          href="/products"
+          class="inline-flex items-center gap-1.5 rounded-md border border-foreground px-6 py-3.5 font-medium text-foreground transition hover:bg-foreground hover:text-background"
+        >
+          看其他产品
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== 索道隐喻 ========== -->
+    <section
+      class="border-t border-b py-20"
+      style="border-color: var(--color-border)"
+    >
+      <div class="section-kicker">Core Metaphor · 核心隐喻</div>
+      <h2 class="section-h2">AI = 半山腰的索道</h2>
+      <p class="max-w-2xl text-muted leading-[1.8] mb-10">
+        AI 不是把读者直接送到山顶的缆车,也不是必须一脚一脚走完全程的山路;
+        它是<strong class="text-foreground">半山腰那段索道</strong>
+        —— 在风景平缓、信息冗余的路段节省体力,
+        在陡峭险峰把腿留给读者自己。
+      </p>
+      <div class="metaphor-grid">
+        <div class="metaphor-col">
+          <div class="metaphor-head metaphor-head-yes">
+            ✓ 可以放索道(风景一般)
+          </div>
+          <ul class="metaphor-list">
+            <li>
+              <strong>目录-摘要层</strong> — 结构化提纲、人物关系图、情节时间轴
+            </li>
+            <li>
+              <strong>背景-注释层</strong> — 跨学科词汇、时代背景、典故溯源
+            </li>
+            <li>
+              <strong>检索-定位层</strong> — 关键词高亮、段落摘要、观点对照
+            </li>
+          </ul>
+        </div>
+        <div class="metaphor-col">
+          <div class="metaphor-head metaphor-head-no">
+            ✗ 必须留腿(陡峭险峰)
+          </div>
+          <ul class="metaphor-list">
+            <li>
+              <strong>情感与审美体验</strong> — 文学张力在细部语言、节奏、留白
+            </li>
+            <li>
+              <strong>批判性思考与价值判断</strong> — 读者必须亲自走一遍推理
+            </li>
+            <li>
+              <strong>个人化连接</strong> — 文本与自身经验碰撞,算法替代不了
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 三代师承 ========== -->
+    <section class="py-20">
+      <div class="section-kicker">Lineage · 师承</div>
+      <h2 class="section-h2">50 年跨度 · 三代人 · 同一立场</h2>
+      <p class="max-w-2xl text-muted leading-relaxed mb-12">
+        本课程的理论根基不是凭空发明。三代阅读教育者独立得出过同一结论:
+        <strong class="text-foreground"
+          >阅读能力不是天赋,可以被传授、被训练、被工程化</strong
+        >。普通人可以学会。我的 AI 流水线是这条师承的第四代工程化。
+      </p>
+      <div class="lineage-flow">
+        <div class="lineage-node">
+          <div class="lineage-year">1972</div>
+          <div class="lineage-name">Adler</div>
+          <div class="lineage-work">如何阅读一本书</div>
+          <p>四层阅读法 + 深沉经验 — "去除阻碍,让经验发生"</p>
+        </div>
+        <div class="lineage-arrow">→</div>
+        <div class="lineage-node">
+          <div class="lineage-year">2003</div>
+          <div class="lineage-name">Foster</div>
+          <div class="lineage-work">如何阅读一本文学书</div>
+          <p>记忆 · 象征 · 模式 — "接受作品,捕捉精髓和本质"</p>
+        </div>
+        <div class="lineage-arrow">→</div>
+        <div class="lineage-node">
+          <div class="lineage-year">2012</div>
+          <div class="lineage-name">王荣生</div>
+          <div class="lineage-work">阅读教学教什么</div>
+          <p>点划评注四步 — "应该看什么地方,从这些地方看出什么来"</p>
+        </div>
+        <div class="lineage-arrow">→</div>
+        <div
+          class="lineage-node lineage-current"
+        >
+          <div class="lineage-year">2026</div>
+          <div class="lineage-name">stone杨</div>
+          <div class="lineage-work">AI 阅读流水线</div>
+          <p>batch_v0 → raw 打靶 → 教案 — "AI 压缩脚手架,人走完最后一步"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 三层 AI 介入 ========== -->
+    <section
+      class="border-t py-20"
+      style="border-color: var(--color-border)"
+    >
+      <div class="section-kicker">AI Integration · 介入分层</div>
+      <h2 class="section-h2">AI 做什么,人做什么</h2>
+      <div class="ai-layers">
+        <div class="ai-layer">
+          <div class="ai-layer-name">结构层</div>
+          <div class="ai-layer-desc">
+            <div class="ai-col">
+              <div class="ai-col-head">AI 做</div>
+              <p>提取目录树 · 章节概要 · 关键词定义</p>
+            </div>
+            <div class="ai-col">
+              <div class="ai-col-head">人做</div>
+              <p>浏览 · 选择重点</p>
+            </div>
+          </div>
+        </div>
+        <div class="ai-layer">
+          <div class="ai-layer-name">网络层</div>
+          <div class="ai-layer-desc">
+            <div class="ai-col">
+              <div class="ai-col-head">AI 做</div>
+              <p>跨书检索 · 找相似论点 · 找矛盾</p>
+            </div>
+            <div class="ai-col">
+              <div class="ai-col-head">人做</div>
+              <p>判断是否有价值</p>
+            </div>
+          </div>
+        </div>
+        <div class="ai-layer ai-layer-human">
+          <div class="ai-layer-name">创造层</div>
+          <div class="ai-layer-desc">
+            <div class="ai-col">
+              <div class="ai-col-head">AI 做</div>
+              <p>提出对话式问题 · 反驳立场</p>
+            </div>
+            <div class="ai-col">
+              <div class="ai-col-head">人做(AI 不能替)</div>
+              <p>回答 · 反思 · 升华 · 深沉经验在场</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10 本课程序列 ========== -->
+    <section class="py-20">
+      <div class="section-kicker">Course Map · 第一期课程</div>
+      <h2 class="section-h2">10 本书 × 4 课时 = 40 课时</h2>
+      <p class="max-w-2xl text-muted leading-relaxed mb-12">
+        按"阅读方法渐进"顺序设计,从联结法到立场转换法,每一本都匹配一个核心阅读技能,学生走完 10 本,方法论闭环。
+      </p>
+      <div class="course-list">
+        <div class="course-item">
+          <div class="course-num">01</div>
+          <div class="course-info">
+            <h3>《小王子》</h3>
+            <div class="course-method">联结法 + 可视化法</div>
+          </div>
+          <div class="course-status course-status-ready">前置 · 已规划</div>
+        </div>
+        <div class="course-item">
+          <div class="course-num">02</div>
+          <div class="course-info">
+            <h3>《夏洛的网》</h3>
+            <div class="course-method">提问法 + 推论法</div>
+          </div>
+          <div class="course-status course-status-ready">前置 · 已规划</div>
+        </div>
+        <div class="course-item">
+          <div class="course-num">03</div>
+          <div class="course-info">
+            <h3>《草房子》</h3>
+            <div class="course-method">多视角分析 + 批判性评价</div>
+          </div>
+          <div class="course-status course-status-ready">前置 · 已规划</div>
+        </div>
+        <div class="course-item course-item-featured">
+          <div class="course-num">04</div>
+          <div class="course-info">
+            <h3>《杀死一只知更鸟》</h3>
+            <div class="course-method">推断法 + 立场转换法</div>
+          </div>
+          <div class="course-status course-status-done">
+            ✓ 2026-04 教案已产出
+          </div>
+        </div>
+        <div class="course-item">
+          <div class="course-num">05-10</div>
+          <div class="course-info">
+            <h3>后续 6 本规划中</h3>
+            <div class="course-method">
+              涵盖中外经典 · 阶梯式方法递进
+            </div>
+          </div>
+          <div class="course-status">待公开</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 真实实践发现 ========== -->
+    <section
+      class="border-t border-b py-20"
+      style="border-color: var(--color-border)"
+    >
+      <div class="section-kicker">Real Practice · 打靶发现</div>
+      <h2 class="section-h2">不是纸上谈兵 · 来自真实教案打磨</h2>
+      <div class="practice-finding">
+        <div class="practice-quote">
+          打靶第一本《杀死一只知更鸟》时发现:对中国 12 岁学生,第一障碍<strong
+            class="text-accent">不是种族议题,是外国人名记不住</strong
+          >,导致没代入感。
+        </div>
+        <div class="practice-action">
+          <div class="practice-label">教案因此增加</div>
+          <ul>
+            <li>— 课前导读包(开课前 2 周发学生)</li>
+            <li>— 人物卡(主要角色一张卡,带记忆钩子)</li>
+            <li>— 记忆钩子(每个英文名配中文联想 + 职业标签)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 活体证据 ========== -->
+    <section class="py-20">
+      <div class="section-kicker">Self-Reference · 自指证据</div>
+      <h2 class="section-h2">stone杨 自己读书时也这样用 AI</h2>
+      <p class="max-w-2xl text-muted leading-relaxed mb-10">
+        这不是营销话术。我在做《蒹葭》教案时,自己也在用索道原则 — AI
+        只做结构层复述,我自己写判断和联想。下面是那一刻的真实流程:
+      </p>
+      <div class="self-ref">
+        <div class="self-ref-step">
+          <div class="self-ref-num">1</div>
+          <div>
+            <h4>先读原文</h4>
+            <p>
+              邵毅平讲《诗经·秦风·蒹葭》,提到一个小女孩把"在水一方"理解为"饭桌圆转盘上的菜转不到自己"。我自己读完这段。
+            </p>
+          </div>
+        </div>
+        <div class="self-ref-step">
+          <div class="self-ref-num">2</div>
+          <div>
+            <h4>让 AI 做结构化复述</h4>
+            <p>
+              AI 产出三层:"可望不可即"的距离感 / 转盘夹菜的体验投射 /
+              "发现儿童"的文学史意义。
+              <strong class="text-foreground"
+                >没有判断,没有替我写感想</strong
+              >。
+            </p>
+          </div>
+        </div>
+        <div class="self-ref-step">
+          <div class="self-ref-num">3</div>
+          <div>
+            <h4>我在旁边加【我的想法】</h4>
+            <p>
+              对"文学史四次发现"的独立反思 + 对"修辞立其诚"作文教育的看法。
+              <strong class="text-accent">这一步 AI 没在场</strong>。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="self-ref-quote">
+        "AI 不到山顶,也不把你当乘客送上山。AI 把你从'看不懂这段在说什么'
+        这个山脚,送到'哦原来他在说这个,那我想说...'这个半山腰。从半山腰到山顶,还是你自己爬。"
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section
+      class="border-t py-16 text-center"
+      style="border-color: var(--color-border)"
+    >
+      <div class="section-kicker justify-center">
+        Early Bird · 第一期学员招募中
+      </div>
+      <h2
+        class="font-display text-3xl sm:text-5xl font-black tracking-tight mb-6 mt-6"
+      >
+        想让孩子参加试听?
+      </h2>
+      <p class="text-muted max-w-xl mx-auto leading-relaxed mb-10">
+        扫码加我个人微信,我会发《杀死一只知更鸟》完整 4 课时教案样本给你看。
+        先看教案再决定是否报名,不催你交钱,不拉你进群。
+      </p>
+      <a
+        href="/#find-me"
+        class="inline-flex items-center gap-2 rounded-md bg-foreground px-8 py-4 font-medium text-background transition hover:bg-accent"
+      >
+        加微信拿完整教案 →
+      </a>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* === Metaphor grid === */
+  .metaphor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .metaphor-col {
+    padding: 28px 24px;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.4);
+  }
+  :global(html[data-theme="dark"]) .metaphor-col {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .metaphor-head {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .metaphor-head-yes {
+    color: var(--color-accent);
+  }
+  .metaphor-head-no {
+    color: var(--color-foreground);
+  }
+  .metaphor-list {
+    list-style: none;
+    padding: 0;
+  }
+  .metaphor-list li {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .metaphor-list strong {
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+
+  /* === Lineage flow === */
+  .lineage-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .lineage-node {
+    padding: 24px 20px;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+  }
+  :global(html[data-theme="dark"]) .lineage-node {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .lineage-current {
+    background: var(--color-foreground);
+    color: var(--color-background);
+    border-color: var(--color-foreground);
+  }
+  .lineage-year {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .lineage-current .lineage-year {
+    color: #60a5fa;
+  }
+  .lineage-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .lineage-work {
+    font-size: 12px;
+    color: var(--color-muted);
+    margin-bottom: 12px;
+    font-family: var(--font-mono);
+  }
+  .lineage-current .lineage-work {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .lineage-node p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-muted);
+    margin-top: auto;
+  }
+  .lineage-current p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .lineage-arrow {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    font-weight: 300;
+  }
+
+  /* === AI Layers === */
+  .ai-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ai-layer {
+    padding: 28px 24px;
+    border: 1px solid var(--color-border);
+    border-bottom: none;
+  }
+  .ai-layer:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .ai-layer-human {
+    background: rgba(29, 78, 216, 0.04);
+    border-left: 3px solid var(--color-accent);
+  }
+  .ai-layer-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 22px;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .ai-layer-desc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .ai-col-head {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .ai-col p {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  /* === Course list === */
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .course-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 20px 24px;
+    border: 1px solid var(--color-border);
+    transition: border-color 0.2s;
+  }
+  .course-item:hover {
+    border-color: var(--color-accent);
+  }
+  .course-item-featured {
+    background: rgba(29, 78, 216, 0.04);
+    border-color: var(--color-accent);
+  }
+  .course-num {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .course-info h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .course-method {
+    font-size: 13.5px;
+    color: var(--color-muted);
+  }
+  .course-status {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .course-status-ready {
+    color: var(--color-foreground);
+  }
+  .course-status-done {
+    background: var(--color-accent);
+    color: var(--color-background);
+    border-color: var(--color-accent);
+  }
+
+  /* === Practice finding === */
+  .practice-finding {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .practice-quote {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 500;
+    padding-left: 24px;
+    border-left: 3px solid var(--color-accent);
+  }
+  .practice-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .practice-action ul {
+    list-style: none;
+    padding: 0;
+  }
+  .practice-action li {
+    color: var(--color-muted);
+    font-size: 15px;
+    line-height: 1.85;
+    margin-bottom: 8px;
+  }
+
+  /* === Self-reference === */
+  .self-ref {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 40px;
+  }
+  .self-ref-step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+  }
+  .self-ref-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-background);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .self-ref-step h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .self-ref-step p {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .self-ref-quote {
+    padding: 32px;
+    background: var(--color-foreground);
+    color: var(--color-background);
+    font-family: var(--font-display);
+    font-size: 19px;
+    line-height: 1.65;
+    font-style: italic;
+    font-weight: 500;
+    position: relative;
+  }
+  .self-ref-quote::before {
+    content: '"';
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 80px;
+    opacity: 0.15;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .metaphor-grid,
+    .lineage-flow,
+    .ai-layer-desc,
+    .practice-finding,
+    .self-ref {
+      grid-template-columns: 1fr;
+    }
+    .lineage-arrow {
+      transform: rotate(90deg);
+      padding: 0;
+    }
+    .course-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>方案 A · Bauhaus 工程稿纸 · stoneyang.top 预览</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #faf9f7;
+        --ink: #1a1a1a;
+        --accent: #1d4ed8;
+        --muted: #6b7280;
+        --line: rgba(26, 26, 26, 0.1);
+        --grid: rgba(29, 78, 216, 0.06);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        background-image:
+          linear-gradient(var(--grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+        background-size: 32px 32px;
+        color: var(--ink);
+        font-family: "Noto Sans SC", "Space Grotesk", sans-serif;
+        line-height: 1.65;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      /* === NAV === */
+      .nav {
+        padding: 26px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav .logo {
+        font-family: "Noto Serif SC", serif;
+        font-weight: 900;
+        font-size: 30px;
+        letter-spacing: -0.02em;
+      }
+      .nav .logo .os {
+        color: var(--accent);
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        margin-left: 4px;
+        font-size: 0.9em;
+      }
+      .nav ul {
+        display: flex;
+        gap: 36px;
+        list-style: none;
+      }
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: color 0.2s;
+        position: relative;
+        padding-bottom: 4px;
+      }
+      .nav a:hover {
+        color: var(--ink);
+      }
+      .nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s;
+      }
+      .nav a:hover::after,
+      .nav a.active::after {
+        transform: scaleX(1);
+      }
+      .nav a.active {
+        color: var(--ink);
+      }
+
+      /* === HERO === */
+      .hero {
+        padding: 96px 0 88px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border: 1.5px solid var(--accent);
+        border-radius: 999px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+        background: rgba(29, 78, 216, 0.04);
+      }
+      .badge::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-family: "Noto Serif SC", serif;
+        font-weight: 900;
+        font-size: clamp(48px, 7vw, 92px);
+        line-height: 1.02;
+        letter-spacing: -0.025em;
+        margin-bottom: 20px;
+      }
+      .hero h1 .os {
+        color: var(--accent);
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+      }
+      .hero .sub {
+        font-size: clamp(18px, 1.8vw, 22px);
+        color: var(--ink);
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-family: "Noto Serif SC", serif;
+      }
+      .hero .tagline {
+        color: var(--muted);
+        margin-bottom: 36px;
+        max-width: 480px;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      .cta-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 14px 26px;
+        border-radius: 4px;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 15px;
+        transition: all 0.2s;
+        font-family: "Noto Sans SC", sans-serif;
+      }
+      .cta-primary {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .cta-primary:hover {
+        background: var(--accent);
+      }
+      .cta-secondary {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--ink);
+      }
+      .cta-secondary:hover {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      /* === RADIAL DIAGRAM === */
+      .radial {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .radial .ring {
+        position: absolute;
+        inset: 12%;
+        border: 1.5px dashed rgba(29, 78, 216, 0.35);
+        border-radius: 50%;
+      }
+      .radial .ring.inner {
+        inset: 32%;
+        border-style: solid;
+        border-color: rgba(29, 78, 216, 0.12);
+      }
+      .radial .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 96px;
+        height: 96px;
+        background: var(--ink);
+        color: var(--bg);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: "Noto Serif SC";
+        font-weight: 700;
+        font-size: 13px;
+        z-index: 2;
+        line-height: 1.3;
+      }
+      .radial .center span {
+        font-family: "Space Grotesk";
+        font-weight: 600;
+        color: var(--accent);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        background: var(--bg);
+        padding: 2px 6px;
+        border-radius: 3px;
+        margin-bottom: 3px;
+      }
+      .radial .node {
+        position: absolute;
+        padding: 8px 14px;
+        background: var(--bg);
+        border: 1.5px solid var(--ink);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .radial .node .n {
+        color: var(--accent);
+        font-family: "Space Grotesk";
+        font-weight: 700;
+        font-size: 10px;
+      }
+      .radial .n1 {
+        top: -6%;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      .radial .n2 {
+        top: 28%;
+        right: -8%;
+      }
+      .radial .n3 {
+        bottom: 18%;
+        right: -4%;
+      }
+      .radial .n4 {
+        bottom: 18%;
+        left: -4%;
+      }
+      .radial .n5 {
+        top: 28%;
+        left: -8%;
+      }
+
+      /* === SECTION === */
+      .section {
+        padding: 96px 0;
+        border-top: 1px solid var(--line);
+      }
+      .kicker {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.28em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .kicker::before {
+        content: "";
+        width: 32px;
+        height: 2px;
+        background: var(--accent);
+      }
+      .section h2 {
+        font-family: "Noto Serif SC", serif;
+        font-weight: 900;
+        font-size: clamp(32px, 4vw, 52px);
+        line-height: 1.1;
+        margin-bottom: 56px;
+        letter-spacing: -0.02em;
+        max-width: 900px;
+      }
+
+      /* === EVIDENCE === */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+      }
+      .evidence .num {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: clamp(56px, 7vw, 96px);
+        color: var(--ink);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+      }
+      .evidence .num small {
+        font-size: 0.35em;
+        opacity: 0.6;
+        margin-left: 6px;
+        font-weight: 500;
+      }
+      .evidence .evi-title {
+        font-family: "Noto Serif SC", serif;
+        font-weight: 700;
+        font-size: 19px;
+        color: var(--ink);
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+      .evidence .label {
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.75;
+      }
+
+      /* === CHAMBERS (5 大舱室) === */
+      .chambers {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+      }
+      .chamber {
+        grid-column: span 2;
+        padding: 32px 28px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.6);
+        position: relative;
+        transition: all 0.25s;
+        overflow: hidden;
+      }
+      .chamber:nth-child(4) {
+        grid-column: 2 / span 2;
+      }
+      .chamber:nth-child(5) {
+        grid-column: 4 / span 2;
+      }
+      .chamber:hover {
+        border-color: var(--accent);
+        background: #fff;
+        transform: translateY(-2px);
+      }
+      .chamber .chamber-n {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        font-family: "Space Grotesk";
+        font-weight: 700;
+        font-size: 56px;
+        color: var(--accent);
+        opacity: 0.12;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+      .chamber .cat {
+        font-family: "Space Grotesk";
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .chamber h3 {
+        font-family: "Noto Serif SC";
+        font-weight: 900;
+        font-size: 22px;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+      .chamber .modules {
+        font-family: "Space Grotesk";
+        font-size: 12px;
+        color: var(--ink);
+        font-weight: 500;
+        margin-bottom: 14px;
+        letter-spacing: 0.02em;
+        opacity: 0.75;
+      }
+      .chamber .sep-h {
+        width: 32px;
+        height: 1px;
+        background: var(--accent);
+        margin-bottom: 14px;
+      }
+      .chamber p {
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.75;
+      }
+
+      /* === PRODUCTS === */
+      .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .product {
+        padding: 48px 40px 44px;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        display: block;
+        transition: transform 0.25s;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .product.dark {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .product.light {
+        background: var(--bg);
+        color: var(--ink);
+        border: 1px solid var(--ink);
+      }
+      .product:hover {
+        transform: translateY(-4px);
+      }
+      .product .shape {
+        position: absolute;
+        right: -30px;
+        bottom: -30px;
+        width: 180px;
+        height: 180px;
+        opacity: 0.08;
+        pointer-events: none;
+      }
+      .product.dark .shape {
+        border: 2px solid var(--bg);
+        border-radius: 50%;
+      }
+      .product.light .shape {
+        border: 2px solid var(--ink);
+        transform: rotate(45deg);
+        bottom: -60px;
+        right: -60px;
+      }
+      .product .cat {
+        font-family: "Space Grotesk";
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        opacity: 0.6;
+      }
+      .product h3 {
+        font-family: "Noto Serif SC";
+        font-weight: 900;
+        font-size: 38px;
+        margin-bottom: 16px;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+      .product p {
+        font-size: 15px;
+        opacity: 0.85;
+        margin-bottom: 32px;
+        line-height: 1.7;
+      }
+      .product .more {
+        font-size: 14px;
+        font-weight: 500;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 2px;
+        display: inline-block;
+        align-self: flex-start;
+      }
+
+      /* === FIND / QR === */
+      .qr-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .qr-card {
+        padding: 24px 20px 28px;
+        border: 1px solid var(--line);
+        background: #fff;
+        text-align: center;
+        transition: border-color 0.2s;
+      }
+      .qr-card:hover {
+        border-color: var(--ink);
+      }
+      .qr-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        display: block;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+      .qr-card .plat {
+        font-family: "Noto Serif SC";
+        font-weight: 700;
+        font-size: 17px;
+        margin-top: 20px;
+        margin-bottom: 4px;
+      }
+      .qr-card .desc {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .qr-card .plat-en {
+        font-family: "Space Grotesk";
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      /* === FOOTER === */
+      .footer {
+        padding: 48px 0 32px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+        border-top: 1px solid var(--line);
+      }
+      .footer .scheme-mark {
+        font-family: "Space Grotesk";
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 48px;
+          padding: 64px 0;
+        }
+        .products,
+        .evidence-grid,
+        .qr-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .chambers {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .chamber,
+        .chamber:nth-child(4),
+        .chamber:nth-child(5) {
+          grid-column: 1;
+        }
+        .nav ul {
+          display: none;
+        }
+        .section {
+          padding: 64px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- NAV -->
+      <nav class="nav">
+        <div class="logo">超级个体 <span class="os">OS</span></div>
+        <ul>
+          <li><a href="#hero">首页</a></li>
+          <li><a href="#evidence">证据</a></li>
+          <li><a href="#layers">系统</a></li>
+          <li><a href="#products">产品</a></li>
+          <li><a href="#find">找我</a></li>
+        </ul>
+      </nav>
+
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div>
+          <div class="badge">Solo · AI · Meta Validation</div>
+          <h1>超级个体 <span class="os">OS</span></h1>
+          <p class="sub">stone杨 · 零到一验证手记</p>
+          <p class="tagline">
+            一个人 × 一群 Agent,用 meta 思维重造一人公司。<br />
+            不做 AI 教育专家,做"普通人 + AI 追上专家"的 demo。
+          </p>
+          <div class="cta-group">
+            <a href="#products" class="cta cta-primary">看我的产品矩阵 →</a>
+            <a href="#find" class="cta cta-secondary">加我微信聊聊</a>
+          </div>
+        </div>
+        <div class="radial">
+          <div class="ring"></div>
+          <div class="ring inner"></div>
+          <div class="center"><span>YOU</span>一人公司</div>
+          <div class="node n1"><span class="n">00</span>Kernel</div>
+          <div class="node n2"><span class="n">01</span>Sensors</div>
+          <div class="node n3"><span class="n">02</span>Brain</div>
+          <div class="node n4"><span class="n">03</span>Actuators</div>
+          <div class="node n5"><span class="n">04</span>Memory</div>
+        </div>
+      </section>
+
+      <!-- EVIDENCE -->
+      <section class="section" id="evidence">
+        <div class="kicker">已交付的证据 · 不是营销话术</div>
+        <h2>用产出说话</h2>
+        <div class="evidence-grid">
+          <div class="evidence">
+            <div class="num">14<small>本</small></div>
+            <div class="evi-title">专业阅读教学论 Wiki</div>
+            <div class="label">
+              从 Adler(1972)→ Foster(2003)→ 王荣生(2012)<br />
+              三代师承 · MIT 48 小时法 × Karpathy LLM Wiki 合体<br />
+              7 天 demo · 公众号 + 小红书 + GitHub 三平台已发布
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="num">10<small>本</small></div>
+            <div class="evi-title">AI 阅读系列课 · 第一期</div>
+            <div class="label">
+              小王子 / 夏洛的网 / 草房子 / 杀死一只知更鸟 ……<br />
+              AI 索道设计原则:索道放山腰 · 陡峰留给孩子自己<br />
+              batch_v0 → raw 打靶 → 4 课时教案 pipeline
+            </div>
+          </div>
+          <div class="evidence">
+            <div class="num">2.0</div>
+            <div class="evi-title">Agent OS 自用中</div>
+            <div class="label">
+              5 大舱室 × 华为 BLM / IPD / IPMS 方法论<br />
+              多业务线隔离 · 个人层不变 · 业务层独立<br />
+              30+ 天实战验证 · 撬动多个 meta demo 产出
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAMBERS -->
+      <section class="section" id="layers">
+        <div class="kicker">System Architecture</div>
+        <h2>Agent OS · 5 大舱室</h2>
+        <p
+          style="
+            color: var(--muted);
+            max-width: 700px;
+            margin: -32px 0 48px;
+            font-size: 16px;
+            line-height: 1.75;
+          "
+        >
+          一人公司的操作系统。按 <strong>输入 → 处理 → 输出</strong>
+          把碎片精力重新组织,每个舱室只专注一件事。<br />
+          方法论来源:华为 BLM(业务领先)+ IPD(集成产品开发)+
+          IPMS(集成营销)。
+        </p>
+        <div class="chambers">
+          <div class="chamber">
+            <div class="chamber-n">00</div>
+            <div class="cat">Kernel · 系统内核</div>
+            <h3>大脑中枢</h3>
+            <div class="modules">.agents · 技能目录 · 身份认知</div>
+            <div class="sep-h"></div>
+            <p>
+              配置文件。工作流模板 / skill 清单 / 边界规则,
+              所有舱室的规范都在这里注入。
+            </p>
+          </div>
+          <div class="chamber">
+            <div class="chamber-n">01</div>
+            <div class="cat">Sensors · 感知输入</div>
+            <h3>信息接收器</h3>
+            <div class="modules">Inbox · 市场雷达 · 灵感冷藏</div>
+            <div class="sep-h"></div>
+            <p>
+              OpenClaw 定时推送、日常碎片采集、
+              偏题灵感的冷宫 — 所有外部信号的第一落点。
+            </p>
+          </div>
+          <div class="chamber">
+            <div class="chamber-n">02</div>
+            <div class="cat">Brain · 决策中枢</div>
+            <h3>规划大脑</h3>
+            <div class="modules">战略底座 · 业务规划 · 产品矩阵</div>
+            <div class="sep-h"></div>
+            <p>
+              对应华为 BLM / DSTE。年度 / 季度 / 每周的战略方向 在这里成型、
+              打磨、落章。
+            </p>
+          </div>
+          <div class="chamber">
+            <div class="chamber-n">03</div>
+            <div class="cat">Actuators · 研发引擎</div>
+            <h3>主力产能位</h3>
+            <div class="modules">IPD 产品研发 · 技能源码库</div>
+            <div class="sep-h"></div>
+            <p>
+              Antigravity / Claude Code 在这里写代码、
+              拆教案、跑 AI 流水线。产能最密集的车间。
+            </p>
+          </div>
+          <div class="chamber">
+            <div class="chamber-n">04</div>
+            <div class="cat">Memory · 交付输出</div>
+            <h3>变现资产</h3>
+            <div class="modules">IPMS 营销 · 最终产品</div>
+            <div class="sep-h"></div>
+            <p>
+              HTML / PPT / 教案 / 公众号文章 — 所有"能换钱 / 能影响人"的产出
+              在这里打包发出。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="section" id="products">
+        <div class="kicker">正在做 · In Progress</div>
+        <h2>两个产品,一套 meta 方法论</h2>
+        <div class="products">
+          <a href="#" class="product dark">
+            <div class="shape"></div>
+            <div>
+              <div class="cat">Product · 一人公司 OS</div>
+              <h3>Agent OS</h3>
+              <p>
+                5 大舱室 × 华为 BLM / IPD / IPMS
+                方法论,把一人公司的碎片精力重新组织。我自己每天在用。
+              </p>
+            </div>
+            <span class="more">了解详情与早鸟名单 →</span>
+          </a>
+          <a href="#" class="product light">
+            <div class="shape"></div>
+            <div>
+              <div class="cat">Product · 12+ 岁 AI 阅读课</div>
+              <h3>AI 阅读系列课</h3>
+              <p>
+                AI 阅读流水线产出 <strong>40 课时</strong> 经典书籍 · 10 本 × 4
+                课时。接过 Adler(1972)→ Foster(2003)三代师承,招募第一期学员。
+              </p>
+            </div>
+            <span class="more">了解课程与试听 →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- FIND -->
+      <section class="section" id="find">
+        <div class="kicker">Find Me · 找我</div>
+        <h2>三个平台 · 同名 stone杨</h2>
+        <div class="qr-grid">
+          <div class="qr-card">
+            <img src="../public/qr-wechat.png" alt="个人微信二维码" />
+            <span class="plat-en">Personal WeChat</span>
+            <div class="plat">个人微信</div>
+            <div class="desc">产品合作 · 早鸟名单 · 1:1 交流</div>
+          </div>
+          <div class="qr-card">
+            <img src="../public/qr-gongzhonghao.png" alt="公众号二维码" />
+            <span class="plat-en">WeChat Channel</span>
+            <div class="plat">公众号</div>
+            <div class="desc">长文 · 深度思考 · 方法论</div>
+          </div>
+          <div class="qr-card">
+            <img src="../public/qr-xiaohongshu.png" alt="小红书二维码" />
+            <span class="plat-en">Xiaohongshu</span>
+            <div class="plat">小红书</div>
+            <div class="desc">短内容 · 灵感碎片 · 日常</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="scheme-mark">Scheme A · Bauhaus Blueprint</div>
+        <p>stoneyang.top 预览 · 字体:Noto Serif SC + Space Grotesk</p>
+      </footer>
+    </div>
+  </body>
+</html>

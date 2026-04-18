@@ -4,6 +4,38 @@
 
 ---
 
+## 2026-04-18 23:55 | Day 3 完结 | 方案 A Bauhaus Port 上线 ✅
+
+**交付**:
+1. **global.css 重做**:
+   - 字体:Noto Serif SC(display)+ Noto Sans SC(body)+ Space Grotesk(en/num/mono)
+   - 色板:米白 `#faf9f7` / 炭黑 `#1a1a1a` / 深靛 `#1d4ed8` / 灰 `#6b7280`
+   - 方格纸背景:body 上 32px 细网格
+   - `.nav-link` 加 hover/active scale 下划线(2px accent)
+   - 新 @utility:`max-w-landing` / `landing-layout` / `font-display` / `font-mono-en`
+2. **Layout.astro**:移除 Astro `<Font>`(Google Sans Code),改用 Google Fonts `<link>` 直连
+3. **Header.astro**:logo 改"超级个体 OS"(OS 用 accent 色),nav 全部加 `nav-link text-base font-medium`
+4. **index.astro 完全重写**:Hero(大字+放射图)+ Evidence(3 数字,14 教学论/40 课时/2.0)+ 5 大舱室(3+2 居中 grid)+ 产品矩阵(2 大卡)+ QR 三码
+5. **产品详情页**(新建 .astro,删旧 .md):
+   - `/products/agent-os` — Hero + Why 碎片精力诅咒 + 5 舱室详解(带 tag 云)+ BLM/IPD/IPMS 映射表 + 三条原则 + 现状(已落地/已产出/2.0 预判)+ 三档未来方向 + CTA
+   - `/products/ai-reading` — Hero + 索道隐喻(可放 vs 留腿 2 列对比)+ 四代师承 flow 图(Adler→Foster→王荣生→stone杨)+ 三层 AI 介入 + 10 本课程序列 + 真实实践发现(外国人名) + 自指证据(蒹葭流程)+ CTA
+
+**Build**:exit 0,46 页(4 页新内容:首页重写 + agent-os 详情 + ai-reading 详情 + 更新 products 索引)
+**部署**:wrangler pages deploy 178 files,https://88e82e89.stoneyang-top.pages.dev
+
+**技术决策**:
+- 字体用 Google Fonts `<link>`(非 `experimental.fonts`):预览 HTML 已验证,部署零坑
+- 首页和产品详情页都用 `landing-layout`(max-w 1180px),比 `app-layout`(max-w-3xl)宽,landing page 视觉冲击强
+- 产品详情页 `<style>` 局部 scoped,5 大舱室 tag 风格、lineage flow、course list 各自小组件不污染 global
+
+**已知待改**:
+- `/posts` 还是 AstroPaper 英文示例博客(Day 5 内容任务)
+- `/about` 还是旧版 AboutLayout(Day 5)
+- `/projects` `/resources` 还是简单 md(Day 5)
+- `/archives` 因 `showArchives: false` 正常 redirect 到 404(无 html 元素 Pagefind 警告,不阻塞)
+
+---
+
 ## 2026-04-18 18:15 | Day 3 前半 | 改名 + 视觉重做 ✅
 
 **品牌升级决定**:
